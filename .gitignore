@@ -1,0 +1,7 @@
+*.sh
+*.DS_Store
+/.tmp
+/node_modules
+/bower_components
+/recursos
+apuntes.md
