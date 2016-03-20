@@ -2,7 +2,7 @@
 // #COLORES BASE
 // -------------------
 
-// Frios
+// - Frios
 $aqua = #7FDBFF
 $blue = #0074D9
 $navy = #001F3F
@@ -11,30 +11,39 @@ $green = #2ECC40
 $olive = #3D9970
 $lime = #01FF70
 
-// Calidos
+// - Calidos
 $yellow = #FFDC00
 $orange = #FF851B
 $red = #FF4136
 $fuchsia = #F012BE
 $purple = #B10DC9
 $maroon = #85144B
+$sun-flower = #F1C40F
 
-// Escala de grises
+// - Escala de grises
 $white = #fff
 $silver = #ddd
 $gray = #aaa
-$black = #111
+$clouds = #ECF0F1
+
+// - Navegacion principal
+$main-nav-bg-color = lighten($clouds, 85%)
+$num-menu-items = 3 // - numero de items que contiene el menu de navegacion
+$menu-item-lines-color = $sun-flower
+$menu-item-color = black
+$menu-item-current-color = lighten($menu-item-lines-color, 20%)
+$menu-item-width = 120px
 
 
 
 // -------------------
-// #COLORES DEL LOGO
+// #RESPONSIVE FONT VARIABLES
 // -------------------
 
-teal-logo = #00A79D
-gray-logo = #939597
-purple-logo = #9E1E62
-red-logo = #ED1C24
-green-logo = #8CC63E
-yellow-logo = #FBAF3F
-pink-logo = #EC008B
+// - rangos de pantalla
+$min-screen-size = 320px
+$max-screen-size = 1280px
+
+// max y min textos main-nav
+$main-nav-title-range = 1rem 2rem
+$main-nav-menu-link-range = 0.7rem 1.05rem

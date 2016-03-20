@@ -13,7 +13,6 @@ var cssnano = require('gulp-cssnano');
 var uncss = require('gulp-uncss');
 var autoprefixer = require('autoprefixer');
 var rucksack = require('rucksack-css');
-var lost = require('lost');
 
 var htmlmin = require('gulp-htmlmin');
 
@@ -58,21 +57,28 @@ gulp.task('lint', function() {
       'curly': 1,
       'eqeqeq': 0,
       'indent': [2, 4],
+      'max-len': 0,
       'no-alert': 0,
       'no-empty': 1,
       'no-use-before-define': 0,
       'no-obj-calls': 2,
       'no-unused-vars': 0,
+      'one-var': [2, "always"],
       'padded-blocks': [2, "always"],
       'quotes': 0,
       'semi': 1,
       'space-before-blocks': [1, "always"],
-      'no-multiple-empty-lines': 0
+      'space-before-function-paren': [2, "always"],
+      'no-multiple-empty-lines': 0,
+      'wrap-iife': [2, "outside"]
     },
     'globals': {
       '$': false,
       'document': false,
-      'window': false
+      'window': false,
+      'navigator': false,
+      'classie': false,
+      'Modernizr': false
     }
   }))
   .pipe(eslint.format())
@@ -99,7 +105,7 @@ gulp.task('copy', function() {
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
-    .pipe(size({title: 'copy'}))
+    .pipe(size({title: 'copy'}));
 });
 
 /**
@@ -131,9 +137,7 @@ gulp.task('build:css', function() {
     autoprefixer({browsers: AUTOPREFIXER_BROWSERS}),
     // Un plugin que contiene muchas utilidades CSS, consultar documentación:
     // http://simplaio.github.io/rucksack/docs/
-    rucksack,
-    // Grid System, documentación: https://github.com/peterramsing/lost
-    lost
+    rucksack
   ];
 
   return gulp.src('app/styles/main.styl')
@@ -159,6 +163,7 @@ gulp.task('build:js', function() {
     // Nota: en listar los scripts explícitamente en el orden para que sean
     // correctamente concatenados.
     'app/scripts/vendors/jquery.js',
+    'app/scripts/context.js',
     'app/scripts/main.js'
   ])
     .pipe(sourcemaps.init())
@@ -203,23 +208,26 @@ gulp.task('build:html', function(){
 
 // Clean task: borra todos los archivos del directorio de salida
 gulp.task('clean', function() {
-  del(['.tmp', 'dist/*', '!dist/.git'], {dot: true})
+  del(['.tmp', 'dist/*', '!dist/.git'], {dot: true});
 });
 
 // Browser-sync task: estar atento a los cambios en los archivos refrescar el
 // navegador. Crea un servidor estático en el directorio temporal.
 gulp.task('start', function(){
   browserSync({
+    ui: false,
     notify: false,
-    // Personaliza el prefijo de registro de la consola Browsersync.
-    logPrefix: 'PA',
+    logPrefix: 'WCP',
     server: ['.tmp', 'app'],
-    // Previene el navegador de abrirse automáticamente.
     open: false,
-    port: 3000
+    port: 3000,
+    ghostMode: false,
+    online: false,
+    reloadDelay: 1000,
+    injectChanges: false,
   });
 
-  gulp.watch(['app/**/*.html'], ['build:html', reload]);
+  gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.styl'], ['build:css', reload]);
   gulp.watch(['app/scripts/**/*.js'], ['lint', 'build:js']);
   gulp.watch(['app/images/**/*'], reload);
@@ -232,7 +240,7 @@ gulp.task('serve:dist', function() {
     logPrefix: 'WCP',
     server: 'dist',
     port: 3001
-  })
+  });
 });
 
 // Build production files, the default task
@@ -241,5 +249,5 @@ gulp.task('default', ['clean'], function(cb) {
     'build:css',
     ['lint', 'build:html', 'build:js', 'images', 'copy'],
     cb
-  )
+  );
 });

@@ -1,21 +1,18 @@
 {
-  "name": "La Roulette",
+  "name": "protectores-armadillo",
   "version": "1.0.0",
-  "description": "paquete de inicio con todas las herramientas para el desarrollo front-end",
+  "description": "entorno de desarrollo para la pagina de protectores armadillo",
   "main": "gulpfile.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sanserna/web-care-package.git"
+    "url": "git+https://github.com/sanserna/protectores-armadillo.git"
   },
   "author": "Santiago Serna",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sanserna/web-care-package/issues"
+    "url": "https://github.com/sanserna/protectores-armadillo/issues"
   },
-  "homepage": "https://github.com/sanserna/web-care-package#readme",
-  "dependencies": {
-    "jquery": "^2.1.4"
-  },
+  "homepage": "https://github.com/sanserna/protectores-armadillo#readme",
   "devDependencies": {
     "autoprefixer": "^6.2.2",
     "browser-sync": "^2.10.0",
@@ -40,7 +37,6 @@
     "gulp-uncss": "^1.0.4",
     "gulp-useref": "^3.0.4",
     "gulp-util": "^3.0.7",
-    "lost": "^6.6.2",
     "rucksack-css": "^0.8.5",
     "run-sequence": "^1.1.5"
   },

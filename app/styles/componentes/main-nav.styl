@@ -1,0 +1,205 @@
+// - Base imports
+@import 'base/_base_mixins'
+@import 'base/_base_variables'
+
+
+
+// -------------------
+// @MAIN-NAV
+// -------------------
+
+.main-nav {
+    background $main-nav-bg-color
+    box-shadow 0 1px 2px 0px rgba(black,.1)
+    padding 10px
+    position fixed
+    top 0
+    left 0
+    width 100%
+    z-index 1000
+    // height $header-height
+    overflow hidden
+    text-align center
+    transform translateY(0%)
+    transition height 0.3s, transform 0.5s
+    .main-nav__logo {
+        width 20%
+        @media screen and (min-width: 40em) {
+            width 80%
+        }
+    }
+    .main-nav__title {
+        font-weight 300
+        font-size responsive $main-nav-title-range
+        font-range $min-screen-size $max-screen-size
+        margin 5px 0
+    }
+    .main-nav__menu {
+    }
+}
+
+.main-nav--hide {
+    transform translateY(-100%)
+}
+
+// - Menu
+
+.menu {
+    width auto
+    line-height 1
+    display flex
+    justify-content center
+    margin 0 auto
+    .menu__list {
+        position relative
+        display flex
+        flex-wrap wrap
+        margin 0
+        padding 0
+        list-style none
+        // @media screen and (max-width: 55em) {
+        //     display block
+        //     margin 0 auto
+        // }
+    }
+    .menu__item {
+        display block
+        margin 1em 0
+    }
+    .menu__link {
+        font-size responsive $main-nav-menu-link-range
+        font-range $min-screen-size $max-screen-size
+        font-weight bold
+        display block
+        padding 1em
+        cursor pointer
+        -webkit-user-select none
+        -moz-user-select none
+        -ms-user-select none
+        -webkit-touch-callout none
+        -khtml-user-select none
+        tab-highlight-color rgba(0,0,0,0)
+        &:hover, &:focus {
+            outline none
+        }
+    }
+    @media screen and (min-width: 40em) {
+        justify-content flex-end
+    }
+}
+
+.menu--titania {
+    .menu__item {
+        margin 0
+        &:active:not(.menu__item--current) ~ .menu__lines::before,
+        &:active:not(.menu__item--current) ~ .menu__lines::after {
+            transition transform 0s
+        }
+        &:active:not(.menu__item--current) ~ .menu__lines::before {
+            transform scale3d(1, 1, 1)
+        }
+        &:active:not(.menu__item--current) ~ .menu__lines::after {
+            transform scale3d(1, 0, 1)
+        }
+        &:nth-child(1).menu__item--current ~ .menu__lines {
+            transform translate3d(0, 0, 0)
+        }
+        &:nth-child(2).menu__item--current ~ .menu__lines {
+            transform translate3d(100%, 0, 0)
+        }
+        &:nth-child(3).menu__item--current ~ .menu__lines {
+            transform translate3d(200%, 0, 0)
+        }
+        &:nth-child(5).menu__item--current ~ .menu__lines {
+            transform translate3d(400%, 0, 0)
+        }
+    }
+    .menu__item--current {
+        .menu__link {
+            color $menu-item-current-color
+            transition color 0.7s 0.2s
+        }
+    }
+    .menu__link {
+        width ($menu-item-width / 1.5)
+        height 3em
+        text-align center
+        color $menu-item-color
+        transition color 0.3s 0.2s
+        &:hover, &:focus {
+            color darken($menu-item-color, 50%)
+        }
+        @media screen and (min-width: 40em) {
+            width $menu-item-width
+        }
+    }
+    .menu__lines {
+        position absolute
+        top 0
+        left 0
+        width ($menu-item-width / 1.5)
+        height 100%
+        pointer-events none
+        border 2px solid $menu-item-lines-color
+        border-width 2px 0
+        transition transform 0.5s 0.2s
+        transition-timing-function cubic-bezier(1, 0.01, 0, 1)
+        &::before, &::after {
+            content ''
+            position absolute
+            top 0
+            left 0
+            width 100%
+            height 100%
+            border 2px solid $menu-item-lines-color
+            border-width 0 2px
+            tranform-origin 0% 50%
+        }
+        &::before {
+            transform scale3d(1, 0, 1)
+            transition transform 0.2s ease
+        }
+        &::after {
+            transform scale3d(1, 1, 1)
+            transition transform 0.2s ease 0.7s
+        }
+        @media screen and (min-width: 40em) {
+            width $menu-item-width
+        }
+    }
+    // @media screen and (max-width:55em) {
+    //     .menu__item {
+    //         &:active:not(.menu__item--current) ~ .menu__lines::after {
+    //             transform scale3d(0, 1, 1)
+    //         }
+    //         &:nth-child(1).menu__item--current ~ .menu__lines {
+    //             transform translate3d(0, 0, 0)
+    //         }
+    //         &:nth-child(2).menu__item--current ~ .menu__lines {
+    //             transform translate3d(0, 100%, 0)
+    //         }
+    //         &:nth-child(3).menu__item--current ~ .menu__lines {
+    //             transform translate3d(0, 200%, 0)
+    //         }
+    //         &:nth-child(4).menu__item--current ~ .menu__lines {
+    //             transform translate3d(0, 300%, 0)
+    //         }
+    //         &::nth-child(5).menu__item--current ~ .menu__lines {
+    //             transform translate3d(0, 400%, 0)
+    //         }
+    //     }
+        
+    //     .menu__lines {
+    //         height (100% / $num-menu-items)
+    //         height 100%
+    //         border-width 0 2px
+    //         &::before, &::after {
+    //             border-width 2px 0
+    //             transform-origin 50% 0%
+    //         }
+    //         &::before {
+    //             transform scale3d(0, 1, 1)
+    //         }
+    //     }
+    // }
+}
