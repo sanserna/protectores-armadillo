@@ -58,6 +58,7 @@ gulp.task('lint', function() {
       'eqeqeq': 0,
       'indent': [2, 4],
       'max-len': 0,
+      'max-nested-callbacks': [1, 10],
       'no-alert': 0,
       'no-empty': 1,
       'no-use-before-define': 0,
@@ -77,7 +78,7 @@ gulp.task('lint', function() {
       'document': false,
       'window': false,
       'navigator': false,
-      'classie': false,
+      'Waypoint': false,
       'Modernizr': false
     }
   }))
@@ -163,6 +164,8 @@ gulp.task('build:js', function() {
     // Nota: en listar los scripts explícitamente en el orden para que sean
     // correctamente concatenados.
     'app/scripts/vendors/jquery.js',
+    'app/scripts/vendors/modernizr-custom.js',
+    'app/scripts/vendors/jquery.waypoints.js',
     'app/scripts/context.js',
     'app/scripts/main.js'
   ])

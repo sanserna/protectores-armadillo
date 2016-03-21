@@ -23,9 +23,11 @@
     transform translateY(0%)
     transition height 0.3s, transform 0.5s
     .main-nav__logo {
+        margin auto
         width 20%
         @media screen and (min-width: 40em) {
             width 80%
+            text-align left
         }
     }
     .main-nav__title {
@@ -35,6 +37,9 @@
         margin 5px 0
     }
     .main-nav__menu {
+    }
+    @media screen and (min-width: 40em) {
+        height 60px
     }
 }
 
@@ -118,6 +123,9 @@
         .menu__link {
             color $menu-item-current-color
             transition color 0.7s 0.2s
+            &:hover, &:focus {
+                color $menu-item-current-color
+            }
         }
     }
     .menu__link {
@@ -126,7 +134,7 @@
         text-align center
         color $menu-item-color
         transition color 0.3s 0.2s
-        &:hover, &:focus {
+        &:hover {
             color darken($menu-item-color, 50%)
         }
         @media screen and (min-width: 40em) {
