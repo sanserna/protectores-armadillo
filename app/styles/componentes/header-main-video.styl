@@ -1,0 +1,59 @@
+// -------------------
+// #HEADER-VIDEO
+// -------------------
+
+.header-video {
+    background-color black
+    height 60vh
+    position relative
+    .header-video__bg {
+        height 100%
+        width 100%
+        padding 0
+        position relative
+        overflow hidden
+    }
+    .header-video__video, img {
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+    }
+    .header-video__video {
+        display block
+        background-position center center
+        background-size 100% 100%
+        object-fit cover
+    }
+    img {
+        height 100%
+        max-width none
+        @media only screen and (min-device-width : 320px) and (orientation: landscape) {
+            height auto
+            width 120%
+        }
+    }
+    .header-video__bottom-shape {
+        position absolute
+        right 0px
+        bottom 0px
+        box-sizing content-box
+        border-bottom 20px solid white
+        border-left 10px solid transparent
+        // border-right 10px solid transparent
+        height 0
+        width 50%
+        &::after {
+            content ''
+            position absolute
+            right 0px
+            bottom 0px
+            box-sizing content-box
+            border-bottom 20px solid white
+            // border-left 10px solid transparent
+            border-right 10px solid transparent
+            height 0
+            width 100%
+        }
+    }
+}

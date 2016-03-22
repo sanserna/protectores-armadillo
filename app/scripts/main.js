@@ -8,6 +8,20 @@ app.ctrl = {
 
         $(document).on('ready', function () {
 
+            // - listener para redefinir el margin-top del header segun altura del main-nav
+            $(window).resize(app.ctrl.defineHeaderTop);
+            $(window).ready(app.ctrl.defineHeaderTop);
+
+            if (app.context.isMobile()) {
+
+                app.ctrl.defineHeaderBG(true);
+
+            } else {
+
+                app.ctrl.defineHeaderBG(false);
+
+            }
+
         });
 
     }()),
@@ -34,7 +48,7 @@ app.ctrl = {
             var didScroll,
                 lastScrollTop = 0,
                 // - Minimum of pixels lapsed after hide or show menu
-                delta = 80,
+                delta = 10,
                 $mainNav = $('#main-nav'),
                 navbarHeight = $mainNav.outerHeight(),
                 $sections = $('#page-content > section'),
@@ -107,16 +121,22 @@ app.ctrl = {
 
                 }
 
+                if (!app.context.isMobile()) {
+
+                    return;
+
+                }
+
                 // If current position > last position AND scrolled past navbar
                 if (st > lastScrollTop && st > navbarHeight) {
 
                     // - scroll down hide
-                    // $mainNav.addClass('main-nav--hide');
+                    $mainNav.addClass('main-nav--hide');
 
                 } else if (st + $(window).height() < $(document).height()) {
 
                     // - scroll up show
-                    // $mainNav.removeClass('main-nav--hide');
+                    $mainNav.removeClass('main-nav--hide');
 
                 }
 
@@ -215,6 +235,40 @@ app.ctrl = {
 
         }());
 
-    }())
+    }()),
+
+    defineHeaderTop: function () {
+
+        'use strict';
+
+        var $headerVideo = $('#header-video'),
+            mainNavHeight = $('#main-nav').outerHeight();
+
+        $headerVideo.css('margin-top', mainNavHeight + 'px');
+
+    },
+
+    defineHeaderBG: function (isMobile) {
+
+        'use strict';
+
+        var $headerBG = $('#main-header-bg');
+
+        if (isMobile) {
+
+            $headerBG.append('<img src="img/fondo-header-main-video.jpg" alt="protectores armadillo">');
+
+        } else {
+
+            $headerBG.append(
+                '<video class="header-video__video" autoplay loop muted poster="videos/header-main-video.jpg">' +
+                '   <source src="videos/header-main-video.mp4" type="video/mp4">' +
+                '   <source src="videos/header-main-video.webm" type="video/webm">' +
+                '</video>'
+            );
+
+        }
+
+    }
 
 };

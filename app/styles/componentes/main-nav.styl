@@ -10,7 +10,7 @@
 
 .main-nav {
     background $main-nav-bg-color
-    box-shadow 0 1px 2px 0px rgba(black,.1)
+    box-shadow 0 2px 2px 2px rgba(black,.1)
     padding 10px
     position fixed
     top 0
@@ -20,14 +20,14 @@
     // height $header-height
     overflow hidden
     text-align center
-    transform translateY(0%)
+    transform translate(0%,0%)
     transition height 0.3s, transform 0.5s
     .main-nav__logo {
         margin auto
         width 20%
         @media screen and (min-width: 40em) {
-            width 80%
-            text-align left
+            width 100%
+            max-width 90px
         }
     }
     .main-nav__title {
@@ -36,15 +36,18 @@
         font-range $min-screen-size $max-screen-size
         margin 5px 0
     }
-    .main-nav__menu {
-    }
     @media screen and (min-width: 40em) {
-        height 60px
+        height 85px
+        left 50%
+        transform translate(-50%,0%)
     }
 }
 
 .main-nav--hide {
-    transform translateY(-100%)
+    transform translate(0%,-100%)
+    @media screen and (min-width: 40em) { 
+        transform translate(-50%,-100%)
+    }
 }
 
 // - Menu
