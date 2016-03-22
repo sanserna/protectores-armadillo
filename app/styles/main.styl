@@ -15,6 +15,7 @@
  * SECCIONES
  * - Home
  * .about.......................Contenedor de la primera seccion de la pagina
+ * .productos...................Seccion que contiene el catalogo de productos
  *
  * - Comun
  * 
@@ -22,6 +23,7 @@
  * COMPONENTES
  * .main-nav....................Navegacion principal de la pagina
  * .header-main-video...........Contenedor del video que se muestra en el header
+ * .producto....................Componente para el layout del producto individual
  * 
  */
 
@@ -40,13 +42,16 @@
 // - Components imports
 @import 'componentes/main-nav'
 @import 'componentes/header-main-video'
+@import 'componentes/producto'
 
 
 
 // Tus estilos van aqui
 .page-content {
-    height 5000px
     background-color white
+    max-width 75rem
+    margin-left auto
+    margin-right auto
 }
 
 
@@ -92,9 +97,9 @@
             img {
                 display block
                 height auto
-                object-fit cover
             }
             @media screen and (min-width: 40em) {
+                min-height 450px
                 height 60vh
                 img {
                     position absolute
@@ -108,6 +113,19 @@
     }
 }
 
+
+
+// -------------------
+// #PRODUCTOS-SECTION
+// -------------------
+
+.productos {
+    background-color $sun-flower
+    .productos__title, .productos__descripcion {
+        color white
+        text-align center
+    }
+}
 
 
 

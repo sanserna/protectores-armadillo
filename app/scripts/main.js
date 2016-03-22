@@ -70,6 +70,12 @@ app.ctrl = {
 
                     }
 
+                }, {
+                    offset: function () {
+
+                        return $('#main-nav').outerHeight();
+
+                    }
                 }),
                 wpSectionUp = $sections.waypoint(function (direction) {
 
@@ -86,7 +92,7 @@ app.ctrl = {
                 }, {
                     offset: function () {
 
-                        return -$(this.element).height();
+                        return -$(this.element).height() + $('#main-nav').height();
 
                     }
                 });
@@ -155,7 +161,7 @@ app.ctrl = {
                     $currentItem = $mainNav.find('.menu__item--current'),
                     menuLinkTo = $(this).attr("href"),
                     $toSection = $(menuLinkTo),
-                    toSectionTop = $toSection.offset().top,
+                    toSectionTop = app.context.isMobile() ? $toSection.offset().top : $toSection.offset().top - $mainNav.outerHeight(),
                     directionDown = toSectionTop > lastScrollTop;
 
                 if (!waypoint) {
@@ -279,7 +285,7 @@ app.ctrl = {
         'use strict';
 
         $("#owl-gallery").owlCarousel({
-            navigation: true,
+            navigation: false,
             slideSpeed: 300,
             paginationSpeed: 400,
             singleItem: true,

@@ -26,8 +26,6 @@ body {
   font-size 16px
   line-height 1.5
   color #0a0a0a
-  background #fefefe url(img/subtle_dots_@2X.png) repeat
-  background-attachment fixed
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale 
   -webkit-text-size-adjust 100% 
@@ -47,22 +45,27 @@ a, a:visited, a:hover, a:active {
 }
 
 h1, h2, h3, h4, h5, h6, p{
-    margin 0
-    padding 0
-    border 0
-    font-size 100%
+  margin 0
+  padding 0
+  border 0
+  font-size 100%
 }
 
 h1 {
-    font-size responsive $main-title-range
-    font-range $min-screen-size $max-screen-size
+  font-size responsive $main-title-range
+  font-range $min-screen-size $max-screen-size
+}
+
+h2 {
+  font-size responsive $secondary-title-range
+  font-range $min-screen-size $max-screen-size
 }
 
 section {
-    padding 50px 0
-    @media only screen and (min-width: 768px) {
-        padding 80px 50px
-    }
+  padding 50px 0
+  @media only screen and (min-width: 768px) {
+      padding 80px 50px
+  }
 }
 
 
@@ -72,12 +75,12 @@ section {
 // -------------------
 
 h1.main-title, h2.secondary-title, h3.terciary-titlem, p.main-subtitle {
-    text-align center
-    width 100%
+  text-align center
+  width 100%
 }
 
 h1.main-title {
-    margin-bottom 1rem
+  margin-bottom 1rem
 }
 
 p.main-subtitle {
@@ -88,9 +91,9 @@ p.main-subtitle {
 }
 
 p.main-description {
-    font-size responsive $main-description-range
-    font-range $min-screen-size $max-screen-size
-    line-height 1.48
+  font-size responsive $main-description-range
+  font-range $min-screen-size $max-screen-size
+  line-height 1.48
 }
 
 
