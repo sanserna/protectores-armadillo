@@ -8,7 +8,7 @@ app.ctrl = {
 
         $(document).on('ready', function () {
 
-            // - listener para redefinir el margin-top del header segun altura del main-nav
+            // - Listener para redefinir el margin-top del header segun altura del main-nav
             $(window).resize(app.ctrl.defineHeaderTop);
             $(window).ready(app.ctrl.defineHeaderTop);
 
@@ -21,6 +21,9 @@ app.ctrl = {
                 app.ctrl.defineHeaderBG(false);
 
             }
+
+            // - Initialize owl-carousel
+            app.ctrl.setGallery();
 
         });
 
@@ -268,6 +271,23 @@ app.ctrl = {
             );
 
         }
+
+    },
+
+    setGallery: function () {
+
+        'use strict';
+
+        $("#owl-gallery").owlCarousel({
+            navigation: true,
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            singleItem: true,
+            autoPlay: true,
+            stopOnHover: true,
+            navigationText: ['siguiente', 'anterior'],
+            lazyLoad: true
+        });
 
     }
 

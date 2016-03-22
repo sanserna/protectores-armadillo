@@ -3,6 +3,7 @@
  * FRAMEWORKS
  * animate.css..................Colección de animaciones.
  * normalize.styl...............Rendirizar elementos de forma consistente
+ * owl-carousel.styl............Galeria de imagenes
  *
  * BASE
  * _fonts.......................Configuracion de la fuente principal.
@@ -13,7 +14,7 @@
  *
  * SECCIONES
  * - Home
- * 
+ * .about.......................Contenedor de la primera seccion de la pagina
  *
  * - Comun
  * 
@@ -27,6 +28,7 @@
 // - Frameworks imports
 // @import 'frameworks/animate.css'
 @import 'frameworks/normalize'
+@import 'frameworks/owl-carousel'
 
 // - Base imports
 // @import 'base/_fonts'
@@ -39,14 +41,72 @@
 @import 'componentes/main-nav'
 @import 'componentes/header-main-video'
 
+
+
 // Tus estilos van aqui
 .page-content {
     height 5000px
-    background-color red
+    background-color white
 }
 
 
 
+// -------------------
+// #ABOUT-SECTION
+// -------------------
+
+.about {
+    background white
+    .about__title {
+        color $medium-black
+        margin-bottom 5px
+    }
+    .about__subtitle {
+        color $sun-flower
+    }
+    .about__description {
+        color $medium-black
+        margin-top 20px
+        text-align center
+        @media screen and (min-width: 40em) {
+            margin-top 30px
+        }
+    }
+}
+
+
+
+// -------------------
+// #GALERIA-SECTION
+// -------------------
+
+.galeria {
+    background-color lighten($silver, 70%)
+    max-width 75rem
+    margin-left auto
+    margin-right auto
+    padding 0 0 10px 0
+    #owl-gallery {
+        .item {
+            position relative
+            img {
+                display block
+                height auto
+                object-fit cover
+            }
+            @media screen and (min-width: 40em) {
+                height 60vh
+                img {
+                    position absolute
+                    top 50%
+                    left 50%
+                    width 100%
+                    transform translate(-50%, -50%)
+                }
+            }
+        }
+    }
+}
 
 
 

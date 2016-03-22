@@ -166,6 +166,7 @@ gulp.task('build:js', function() {
     'app/scripts/vendors/jquery.js',
     'app/scripts/vendors/modernizr-custom.js',
     'app/scripts/vendors/jquery.waypoints.js',
+    'app/scripts/vendors/owl-carousel.js',
     'app/scripts/context.js',
     'app/scripts/main.js'
   ])
