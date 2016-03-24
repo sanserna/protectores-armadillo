@@ -1,0 +1,9 @@
+{
+  "lang": "es",
+  "name": "Protectores Armadillo",
+  "short_name": "PA",
+  "icons": [],
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "orientation": "portrait"
+}

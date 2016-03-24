@@ -1,10 +1,2 @@
-*.sh
-*.DS_Store
-*.db
-apuntes.md
-/.tmp
-/dist
-/node_modules
-/recursos
-/bower_components/jquery/*
-!/bower_components/jquery/dist
+/*
+!/dist

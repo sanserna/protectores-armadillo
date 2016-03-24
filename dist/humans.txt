@@ -1,0 +1,12 @@
+# TEAM
+
+  Web Developer: Santiago Serna
+  Contact: sanserve91@gmail.com
+  From: Bogotá DC, Colombia
+
+# SITE
+
+  Last update: 2016/01/22
+  Language: Castellano
+  Doctype: HTML5
+  IDE: Sublime Text, Illustrator
