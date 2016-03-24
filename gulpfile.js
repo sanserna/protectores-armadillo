@@ -201,7 +201,7 @@ gulp.task('build:html', function(){
     .pipe(gulpif('*.html', htmlmin({
       removeComments: true,
       collapseWhitespace: true,
-      removeEmptyElements: true,
+      removeEmptyElements: false,
       keepClosingSlash: true
     })))
     // Output files
