@@ -14,8 +14,10 @@
  *
  * SECCIONES
  * - Home
- * .about.......................Contenedor de la primera seccion de la pagina
+ * .about.......................Seccion que contiene la informacion general de la empresa
  * .productos...................Seccion que contiene el catalogo de productos
+ * .contacto....................Seccion que contiene medios de contacto y formulario
+ * .page-footer.................Main footer de la pagina web
  *
  * - Comun
  * 
@@ -24,6 +26,7 @@
  * .main-nav....................Navegacion principal de la pagina
  * .header-main-video...........Contenedor del video que se muestra en el header
  * .producto....................Componente para el layout del producto individual
+ * .contact-form................Formulario de la seccion de contacto
  * 
  */
 
@@ -43,6 +46,7 @@
 @import 'componentes/main-nav'
 @import 'componentes/header-main-video'
 @import 'componentes/producto'
+@import 'componentes/contact-form'
 
 
 
@@ -125,13 +129,102 @@
         color white
         text-align center
     }
+    .productos-container {
+        margin-top 20px
+    }
+    @media only screen and (min-width: 768px) {
+        padding 50px 10px
+        .productos-container {
+            margin-top 40px
+        }
+    }
 }
 
 
 
+// -------------------
+// #CONTACTO-SECTION
+// -------------------
+
+.contacto {
+    .contacto__title, .contacto__descripcion, .contacto__medios {
+        color $medium-black
+        text-align center
+    }
+    .contact-form {
+        margin auto
+        margin-top 20px
+        @media screen and (min-width: 40em) {
+            margin-top 50px
+        }
+    }
+    .contacto__medios {
+        margin-top 40px
+        .medios__item-main-title {
+            color $sun-flower
+            font-weight 700
+            margin-bottom 10px
+        }
+        .medios__item-title {
+            font-weight 700
+        }
+        .medios__item-descripcion {
+            margin-bottom 10px
+        }
+        @media screen and (min-width: 40em) {
+            margin-top 60px
+            .medios__item-main-title {
+                margin-bottom 20px
+            }
+            .medios__item-descripcion {
+                margin-bottom 30px
+            }
+        }
+    }
+}
 
 
 
+// -------------------
+// #PAGE-FOOTER
+// -------------------
+
+.page-footer {
+    background darken($medium-black, 30%) url(img/black_lozenge_@2X.png)
+    color white
+    display flex
+    flex-wrap wrap
+    justify-content center
+    align-items center
+    max-width 75rem
+    margin-left auto
+    margin-right auto
+    padding 20px 10px
+    .page-footer__logo {
+        margin-right 20px
+        max-width 80px
+    }
+    .page-footer__social-media {
+        text-align center
+        .secondary-title {
+            font-weight 400
+            margin-bottom 10px
+        }
+        img {
+            padding 0 5px
+            max-width 50px
+        }
+    }
+    .small-text {
+        margin-top 20px
+        text-align center
+        width 100%
+    }
+    .referenceLink {
+        color $sun-flower
+        text-decoration underline
+    }
+}
 
 
 

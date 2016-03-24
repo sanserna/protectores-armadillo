@@ -5,11 +5,65 @@
 
 
 // -------------------
-// #GALERIA-SECTION
+// #PRODUCTO
 // -------------------
 
 .producto {
     background-color white
     box-shadow 0 3px 2px 0px rgba(black,.2)
-    area()
+    margin-bottom 1.875rem
+    .producto__name, .producto__descripcion {
+        padding 10px
+    }
+    .producto__name {
+        background-color $medium-black
+        color white
+        text-align center
+    }
+    .producto__descripcion {
+        color $medium-black
+        background-color lighten($clouds, 50%)
+    }
+}
+
+.especificaciones {
+    background-color lighten($clouds, 50%)
+    display flex
+    justify-content space-between
+    padding 5px
+    .especificaciones__medida {
+        background-color white
+        border-top 1px solid $gray
+        border-bottom 1px solid $gray
+        border-right 1px solid $gray
+        color darken($gray, 20%)
+        font-size responsive 0.8rem 1rem
+        font-range $min-screen-size $max-screen-size
+        text-align center
+        width 33.333333333%
+        max-width 33.333333333%
+        padding-bottom 2.5px
+        &:first-child {
+            border-left 1px solid $gray
+        }
+        &:before {
+            color $asbestos
+            display block
+            background-color darken($clouds, 10%)
+            font-weight 700
+            line-height 2
+            margin-bottom 2.5px
+            width 100%
+            text-align center
+        }
+    }
+    .especificaciones__medida--largo:before {
+        content 'Largo'
+    }
+    .especificaciones__medida--ancho:before {
+        content 'Ancho'
+    }
+    .especificaciones__medida--grosor:before {
+        content 'Grosor'
+    }
 }

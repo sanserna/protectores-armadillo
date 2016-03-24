@@ -15,7 +15,7 @@ html {
 *,
 *:before,
 *:after {
-  box-sizing inherit 
+  box-sizing inherit
 }
 
 body {
@@ -62,7 +62,7 @@ h2 {
 }
 
 section {
-  padding 50px 0
+  padding 50px 5px
   @media only screen and (min-width: 768px) {
       padding 80px 50px
   }
@@ -96,5 +96,16 @@ p.main-description {
   line-height 1.48
 }
 
+p.secondary-description {
+  font-size responsive $secondary-description-range
+  font-range $min-screen-size $max-screen-size
+  line-height 1.48
+}
+
+p.small-text {
+  font-size responsive $small-text-range
+  font-range $min-screen-size $max-screen-size
+  line-height 1
+}
 
 
