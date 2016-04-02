@@ -37,6 +37,8 @@
     "gulp-uncss": "^1.0.4",
     "gulp-useref": "^3.0.4",
     "gulp-util": "^3.0.7",
+    "lazypipe": "^1.0.1",
+    "merge-stream": "^1.0.0",
     "rucksack-css": "^0.8.5",
     "run-sequence": "^1.1.5"
   },

@@ -92,7 +92,7 @@ app.ctrl = {
                 }, {
                     offset: function () {
 
-                        return -$(this.element).height() + $('#main-nav').height();
+                        return -$(this.element).outerHeight(true) + $('#main-nav').outerHeight();
 
                     }
                 });
@@ -241,6 +241,26 @@ app.ctrl = {
                 }
 
             });
+
+        }());
+
+        // SETTINGS PRODUCTO
+        (function () {
+
+            var $productos = $('.js-producto'),
+                wpProducto = $productos.waypoint(function (direction) {
+
+                    var $item = $(this.element);
+
+                    $item.animate({
+                        opacity: 1
+                    });
+
+                    this.destroy();
+
+                }, {
+                    offset: 'bottom-in-view'
+                });
 
         }());
 
