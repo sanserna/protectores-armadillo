@@ -12,6 +12,9 @@ app.ctrl = {
             $(window).resize(app.ctrl.defineHeaderTop);
             $(window).ready(app.ctrl.defineHeaderTop);
 
+            // - Realizar carga de gifs para almacenar en cache
+            app.ctrl.preCargarGif();
+
             if (app.context.isMobile()) {
 
                 app.ctrl.defineHeaderBG(true);
@@ -43,7 +46,8 @@ app.ctrl = {
             support = {
                 transitions: Modernizr.csstransitions
             },
-            transEndEventName = transEndEventNames[Modernizr.prefixed('transition')];
+            transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
+            productImgSrc;
 
         // SETTINGS MAIN_NAV
         (function () {
@@ -73,7 +77,7 @@ app.ctrl = {
                 }, {
                     offset: function () {
 
-                        return $('#main-nav').outerHeight();
+                        return $('#main-nav').outerHeight(true);
 
                     }
                 }),
@@ -244,6 +248,50 @@ app.ctrl = {
 
         }());
 
+        // SETTINGS PRODUCTO
+        (function () {
+
+            var $productos = $('.js-producto'),
+                wpProducto = $productos.waypoint(function (direction) {
+
+                    var $item = $(this.element);
+
+                    $item.animate({
+                        opacity: 1,
+                        top: 0
+                    }, 600);
+
+                    this.destroy();
+
+                }, {
+                    offset: '50%'
+                });
+
+        }());
+
+        $('.js-producto').hover(function () {
+
+            var $this = $(this),
+                $img = $('img', $this),
+                gifPath = $img.data().gif ? $img.data().gif : false;
+
+            productImgSrc = $img.attr('src');
+
+            if (gifPath) {
+
+                $img.attr('src', gifPath);
+
+            }
+
+        }, function () {
+
+            var $this = $(this),
+                $img = $('img', $this);
+
+            $img.attr('src', productImgSrc);
+
+        });
+
     }()),
 
     defineHeaderTop: function () {
@@ -293,6 +341,27 @@ app.ctrl = {
             stopOnHover: true,
             navigationText: ['siguiente', 'anterior'],
             lazyLoad: true
+        });
+
+    },
+
+    preCargarGif: function () {
+
+        'use strict';
+
+        var $imgProducto = $('.js-producto img');
+
+        $.each($imgProducto, function (i, img) {
+
+            var $img = $(img);
+
+            if ($img.data().gif) {
+
+                $('<img src="' + $img.data().gif + '">');
+                console.log($img.data().gif);
+
+            }
+
         });
 
     }

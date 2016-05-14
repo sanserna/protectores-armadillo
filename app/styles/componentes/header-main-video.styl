@@ -5,8 +5,28 @@
 .header-video {
     background-color black
     min-height 450px
-    height 60vh
+    height 75vh
     position relative
+    .header-video__txt-container {
+        background-color rgba(1,1,1,.4)
+        position absolute
+        bottom 0
+        left 0
+        padding 15px 15px 35px 15px
+        width 100%
+        .header-video__txt-container__title,
+        .header-video__txt-container__description {
+            color white
+            text-align center
+            margin 0
+        }
+        .header-video__txt-container__title {
+            width auto
+            @media screen and (max-width: 39.9375em) {
+                line-height normal
+            }
+        }
+    }
     .header-video__bg {
         height 100%
         width 100%
@@ -42,7 +62,7 @@
         position absolute
         bottom 0px
         box-sizing content-box
-        border-bottom 20px solid white
+        border-bottom 20px solid $sun-flower
         height 0
         width calc(50% - 15px)
     }

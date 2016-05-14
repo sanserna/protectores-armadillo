@@ -1,0 +1,141 @@
+// - Estilos alternos para el producto
+// -------------------
+// @PRODUCTO_2
+// -------------------
+
+.producto {
+    top 50px
+    opacity 0
+    position relative
+    overflow hidden
+    box-shadow 0 3px 4px 2px rgba(black,.1)
+    cursor pointer
+    .producto__name {
+        background-color $medium-black
+        color white
+        padding 10px 5px
+        text-align center
+        z-index 10
+    }
+    .producto__img {
+        margin 0
+        position relative
+        img {
+            width 100%
+        }
+        .overlay {
+            opacity 0
+            background-color rgba(black,.3)
+            position absolute
+            top 0
+            left 0
+            height 100%
+            width 100%
+            transition 0.3s ease-out
+            .toggle-button {
+                color $sun-flower
+                border 4px solid $sun-flower
+                border-radius 50%
+                line-height 35px
+                font-size 2rem
+                position absolute
+                bottom 100px
+                left 50%
+                height 50px
+                width 50px
+                transform translate(-50%, 0)
+                text-align center
+                vertical-align middle
+                transition 0.3s ease-out
+                &:hover {
+                    color white
+                    background-color $sun-flower
+                }
+            }
+            p {
+                color white
+                padding 5px
+                position absolute
+                bottom -10px
+                left 0
+                width 100%
+                text-align center
+                text-transform uppercase
+                transition 0.2s ease-in-out
+            }
+            .producto__cotizar {
+                position absolute
+                bottom 0
+                left 0
+                height 50px
+                width 100%
+                text-align center
+                padding 10px
+                transform translateY(50px)
+                transition 0.3s ease-out
+                input {
+                    color white
+                    box-sizing content-box
+                    margin 0
+                    background none
+                    padding 5px
+                    border 2px solid $sun-flower
+                    display inline-block
+                    vertical-align middle
+                    white-space normal
+                    line-height 1
+                    width 50px
+                    text-align center
+                }
+                button {
+                    background $sun-flower
+                    border none
+                    font-weight 700
+                    padding 7px 15px
+                    line-height 1.1
+                    transition 0.3s
+                    &:hover {
+                        background darken($sun-flower, 10%)
+                    }
+                }
+            }
+        }
+    }
+    &:hover {
+        .overlay {
+            opacity 1
+            .toggle-button {
+                bottom 60px
+            }
+            p {
+                bottom 10px
+            }
+        }
+    }
+}
+
+.productos-container {
+    .column {
+        padding-top 10px
+        padding-bottom 10px
+        @media screen and (min-width: 40em) {
+            padding-top 20px
+            padding-bottom 20px
+        }
+    }
+}
+
+.cotizar {
+    .overlay {
+        opacity 1 !important
+        .toggle-button {
+            bottom 90px !important
+        }
+        p {
+            bottom 50px !important
+        }
+        .producto__cotizar {
+            transform translateY(0) !important
+        }
+    }
+}

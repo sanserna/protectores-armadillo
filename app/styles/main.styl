@@ -31,21 +31,21 @@
  */
 
 // - Frameworks imports
-// @import 'frameworks/animate.css'
+@import 'frameworks/animate.css'
 @import 'frameworks/normalize'
 @import 'frameworks/owl-carousel'
 
 // - Base imports
 // @import 'base/_fonts'
 @import 'base/_base'
-// @import 'base/_base_mixins'
-// @import 'base/_base_variables'
+@import 'base/_base_mixins'
+@import 'base/_base_variables'
 @import 'base/_grid'
 
 // - Components imports
 @import 'componentes/main-nav'
 @import 'componentes/header-main-video'
-@import 'componentes/producto'
+@import 'componentes/producto_2'
 @import 'componentes/contact-form'
 
 
@@ -126,8 +126,13 @@
 .productos {
     background-color $sun-flower
     .productos__title, .productos__descripcion {
-        color white
         text-align center
+    }
+    .productos__title {
+        color black
+    }
+    .productos__descripcion {
+        color $medium-black
     }
     .productos-container {
         margin-top 20px

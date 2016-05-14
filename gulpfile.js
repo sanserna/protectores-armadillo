@@ -228,7 +228,7 @@ gulp.task('start', function(){
     ghostMode: false,
     online: false,
     reloadDelay: 1000,
-    injectChanges: false,
+    injectChanges: false
   });
 
   gulp.watch(['app/**/*.html'], reload);
