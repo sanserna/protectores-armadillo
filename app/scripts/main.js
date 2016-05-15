@@ -96,7 +96,7 @@ app.ctrl = {
                 }, {
                     offset: function () {
 
-                        return -$(this.element).height() + $('#main-nav').height();
+                        return -$(this.element).outerHeight(true) + $('#main-nav').outerHeight();
 
                     }
                 });
