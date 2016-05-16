@@ -264,11 +264,12 @@ app.ctrl = {
                     this.destroy();
 
                 }, {
-                    offset: '50%'
+                    offset: '80%'
                 });
 
         }());
 
+        // - hover effect para añadir animacion gif
         $('.js-producto').hover(function () {
 
             var $this = $(this),
@@ -276,6 +277,12 @@ app.ctrl = {
                 gifPath = $img.data().gif ? $img.data().gif : false;
 
             productImgSrc = $img.attr('src');
+
+            if ($this.hasClass('active-info')) {
+
+                return;
+
+            }
 
             if (gifPath) {
 
@@ -289,6 +296,29 @@ app.ctrl = {
                 $img = $('img', $this);
 
             $img.attr('src', productImgSrc);
+
+        });
+
+        // - toggle product info
+        $(document).on('click', '.js-info__toggle', function () {
+
+            var $this = $(this),
+                $producto = $this.closest('.js-producto'),
+                $img = $('img', $producto);
+
+            if ($producto.hasClass('active-info')) {
+
+                $this.css('background-image', 'url(styles/img/flecha-negra__arriba.png)');
+                $producto.removeClass('active-info');
+                $producto.trigger('mouseenter');
+
+            } else {
+
+                $img.attr('src', productImgSrc);
+                $this.css('background-image', 'url(styles/img/flecha-negra__abajo.png)');
+                $producto.addClass('active-info');
+
+            }
 
         });
 
@@ -358,7 +388,6 @@ app.ctrl = {
             if ($img.data().gif) {
 
                 $('<img src="' + $img.data().gif + '">');
-                console.log($img.data().gif);
 
             }
 

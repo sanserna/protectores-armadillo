@@ -113,4 +113,24 @@ p.small-text {
   line-height 1
 }
 
+.normal-text {
+  font-size responsive $normal-text-range
+  font-range $min-screen-size $max-screen-size
+  line-height 1
+}
 
+
+
+// -------------------
+// #HELPER ELEMENTS
+// -------------------
+
+.overlayed-bg {
+  background-color rgba(black,.5)
+  position absolute
+  top 0
+  left 0
+  height 100%
+  width 100%
+  z-index 1
+}

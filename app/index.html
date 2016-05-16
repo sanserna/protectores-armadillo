@@ -46,10 +46,11 @@
     </div>
 
     <header id="header-video" class="header-video small-uncollapse row">
+      <div class="overlayed-bg"></div>
       <div id="main-header-bg" class="header-video__bg column"></div>
       <div class="header-video__txt-container">
-        <h1 class="header-video__txt-container__title main-title">Somos una empresa dedicada al cuidado de su vehículo</h1>
-        <p class="header-video__txt-container__description main-subtitle">ofrecemos los mejores productos</p>
+        <h1 class="header-video__txt-container__title">Somos una empresa dedicada al cuidado de su vehículo</h1>
+        <p class="header-video__txt-container__description">Ofrecemos los mejores productos</p>
       </div>
       <div class="header-video__bottom-shape header-video__bottom-shape--left"></div>
       <div class="header-video__bottom-shape header-video__bottom-shape--right"></div>
@@ -77,6 +78,30 @@
 
         <div class="productos-container small-12 column row">
           <div class="small-12 medium-4 column">
+            <div class="js-producto producto">
+              <h3 class="producto__name terciary-title">Protector Esquinero Pequeño</h3>
+              <div class="producto__content">
+                <div class="img-overlay"></div>
+                <img src="img/productos/protector-esquinero-pequeño-portada.jpg" alt="protector esquinero" data-gif="img/productos/protector-esquinero-pequeño.gif">
+                <div class="producto__info info">
+                  <div class="js-info__toggle info__toggle">VER MAS</div>
+                  <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
+                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <div class="info__especificaciones especificaciones">
+                    <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
+                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
+                  </div>
+                  <div class="info__cotizar">
+                    <input type="text" placeholder="#" maxlength="5">
+                    <button class="normal-text" btn-add>añadir a cotización</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="small-12 medium-4 column">
             <div class="js-producto producto">
               <h3 class="producto__name terciary-title">Protector Esquinero Pequeño</h3>
               <div class="producto__img">
@@ -227,7 +252,7 @@
                 <img src="img/productos/reductor-velocidad-ref2-portada.jpg" alt="reductor de velocidad">
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -293,7 +318,7 @@
 
     <!-- Main scripts -->
     <!-- build:js scripts/main.min.js -->
-    <script src="scripts/jquery.js"></script>
+    <script src="scripts/vendors/jquery.js"></script>
     <script src="scripts/vendors/modernizr-custom.js"></script>
     <script src="scripts/vendors/jquery.waypoints.js"></script>
     <script src="scripts/vendors/owl-carousel.js"></script>

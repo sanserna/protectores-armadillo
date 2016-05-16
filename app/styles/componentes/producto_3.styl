@@ -1,0 +1,182 @@
+// - Estilos alternos para el producto
+// -------------------
+// @PRODUCTO_3
+// -------------------
+
+.producto {
+    top 50px
+    opacity 0
+    position relative
+    overflow hidden
+    border 1px solid $medium-black
+    box-shadow 0 3px 4px 2px rgba(black,.1)
+    .producto__name {
+        background-color $medium-black
+        color white
+        padding 10px 5px
+        text-align center
+        z-index 10
+    }
+    .producto__content {
+        position relative
+        &:hover {
+            .info__toggle {
+                top -40px
+            }
+        }
+        .img-overlay {
+            background-color rgba(black,0)
+            position absolute
+            top 0
+            left 0
+            height 100%
+            width 100%
+            transition 0.3s ease-in
+        }
+        img {
+            width 100%
+        }
+        .producto__info {
+            position absolute
+            bottom 0
+            left 0
+            // height 100%
+        }
+    }
+}
+
+// clase para cuando se muestra la informacion del prodcuto
+.producto.active-info {
+    .img-overlay {
+        background-color rgba(black,.3)
+    }
+    .info {
+        transform translateY(0)
+        .info__toggle {
+            top -40px
+            box-shadow 0 -2px 3px 1px rgba(black,.1)
+        }
+    }
+}
+
+// contenedor de la info del producto
+.info {
+    background-color lighten($clouds, 50%)
+    padding 10px
+    transform translateY(100%)
+    transition 0.3s  ease-in-out
+    .info__toggle {
+        background-color $silver
+        background-image url('img/flecha-negra__arriba.png') 
+        background-position 70% 50% 
+        background-repeat no-repeat
+        background-size 25px 25px
+        cursor pointer
+        position absolute
+        top 0
+        left 0
+        line-height 40px
+        height 40px
+        width 100%
+        text-align center
+        transition 0.3s
+    }
+    .info__titulo {
+        color $medium-black
+        text-align left
+    }
+    .info__descripcion {
+        color $medium-black
+        padding 10px 0
+    }
+    .info__especificaciones {
+        background-color lighten($clouds, 50%)
+    }
+    .info__cotizar {
+        padding 10px 0 0 0
+        display flex
+        input, button {
+            min-height 45px
+            border 2px solid darken($sun-flower, 5%)
+        }
+        input {
+            color $medium-black
+            background none
+            padding 5px
+            white-space normal
+            line-height 1
+            text-align center
+            width 25%
+        }
+        button {
+            color darken($sun-flower, 50%)
+            background $sun-flower
+            font-weight normal
+            font-size responsive $secondary-description-range
+            font-range $min-screen-size $max-screen-size
+            padding 7px 15px
+            line-height 1.1
+            transition 0.3s
+            text-transform uppercase
+            width 75%
+            &:hover {
+                color white
+                background darken($sun-flower, 10%)
+            }
+        }
+    }
+}
+
+// especificaciones de medidas del producto
+.especificaciones {
+    display flex
+    justify-content space-between
+    .especificaciones__medida {
+        background-color white
+        border-top 1px solid $gray
+        border-bottom 1px solid $gray
+        border-right 1px solid $gray
+        color darken($gray, 20%)
+        font-size responsive 0.8rem 1rem
+        font-range $min-screen-size $max-screen-size
+        text-align center
+        width 33.333333333%
+        max-width 33.333333333%
+        padding-bottom 2.5px
+        &:first-child {
+            border-left 1px solid $gray
+        }
+        &:before {
+            color $asbestos
+            display block
+            background-color darken($clouds, 10%)
+            font-weight 700
+            line-height 2
+            margin-bottom 2.5px
+            width 100%
+            text-align center
+        }
+    }
+    .especificaciones__medida--largo:before {
+        content 'Largo'
+    }
+    .especificaciones__medida--ancho:before {
+        content 'Ancho'
+    }
+    .especificaciones__medida--grosor:before {
+        content 'Grosor'
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

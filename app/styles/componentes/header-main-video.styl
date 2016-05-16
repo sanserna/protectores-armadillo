@@ -5,26 +5,39 @@
 .header-video {
     background-color black
     min-height 450px
-    height 75vh
+    height 70vh
     position relative
+    .overlayed-bg {
+        background-color rgba(black,.2)
+    }
     .header-video__txt-container {
-        background-color rgba(1,1,1,.4)
         position absolute
-        bottom 0
+        bottom 30%
         left 0
-        padding 15px 15px 35px 15px
+        padding 20px
         width 100%
+        z-index 2
+        @media screen and (min-width: 40em) {
+            padding 20px 20px 20px 30px
+            width 50%
+        }
         .header-video__txt-container__title,
         .header-video__txt-container__description {
+            font-family 'Kepler-Std'
             color white
-            text-align center
+            text-align left
             margin 0
         }
         .header-video__txt-container__title {
+            font-size responsive 1.5rem 3.5rem
+            font-range 320px 1280px
+            line-height normal
             width auto
-            @media screen and (max-width: 39.9375em) {
-                line-height normal
-            }
+        }
+        .header-video__txt-container__description {
+            font-size responsive 1rem 1.5rem
+            font-range 320px 1280px
+            padding 5px 0
         }
     }
     .header-video__bg {
@@ -65,6 +78,7 @@
         border-bottom 20px solid $sun-flower
         height 0
         width calc(50% - 15px)
+        z-index 3
     }
     .header-video__bottom-shape--left {
         left 0
