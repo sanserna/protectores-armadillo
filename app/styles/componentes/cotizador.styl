@@ -1,0 +1,133 @@
+// -------------------
+// #COTIZADOR
+// -------------------
+
+#cotizadorContent {
+    display none
+}
+
+.cotizador {
+    display none
+    position fixed
+    right 10px
+    bottom 0
+    z-index 999
+    width 340px
+    .cotizador__toggle {
+        background $carrot url('img/doc.png') 10px 50% no-repeat
+        background-size 25px 25px
+        border-top-left-radius 5px
+        border-top-right-radius 5px
+        color white
+        cursor pointer
+        font-weight 700
+        padding 10px 0 10px 25px
+        text-align center
+        text-transform uppercase
+        transition 0.3s
+        &:hover {
+            background-color darken($carrot, 20%)
+        }
+    }
+    .cotizador__no-producto,
+    .cotizador__productos,
+    .cotizador__solicitar {
+        background-color lighten($clouds, 50%)
+    }
+    .cotizador__no-producto {
+        padding 5px
+    }
+    .cotizador__solicitar {
+        display flex
+        flex-direction column
+        padding 5px 5px 0 5px
+        input, button {
+            min-height 45px
+            border none
+            width 100%
+        }
+        input {
+            border 1px solid $gray
+            color $medium-black
+            background white
+            padding 5px
+            white-space normal
+            line-height 1
+            text-align center
+        }
+        button {
+            color $medium-black
+            background darken($clouds, 20%)
+            font-weight normal
+            font-size responsive $secondary-description-range
+            font-range $min-screen-size $max-screen-size
+            line-height normal
+            transition 0.3s
+            text-transform uppercase
+            &:hover {
+                color white
+                background darken($clouds, 30%)
+            }
+            &.succes {
+                color white
+                background $esmerald url('img/check.png') 95% 50% no-repeat
+                background-size 20px 20px
+            }
+        }
+    }
+    @media screen and (min-width: 64em) {
+        display block
+    }
+}
+
+.productos-cotizacion {
+    padding 5px 5px 0 5px
+    .productos-cotizacion__producto {
+        display flex
+        cursor default
+        margin-bottom 5px
+        position relative
+        overflow hidden
+        &:nth-last-child(1) {
+            margin 0
+        }
+        &:hover {
+            [ctzn-product-close] {
+                right 0
+            }
+        }
+        [ctzn-product-name],
+        [ctzn-product-num] {
+            text-align center
+            padding 5px
+        }
+        [ctzn-product-name] {
+            background-color $medium-black
+            color white
+            width 260px
+        }
+        [ctzn-product-num] {
+            background-color $silver
+            width 70px
+        }
+        [ctzn-product-close] {
+            background-color $pomegranate
+            border none
+            color white
+            font-weight bold
+            padding 5px
+            position absolute
+            right -70px
+            top 0
+            width 70px
+            transition 0.3s
+        }
+    }
+}
+
+
+
+
+
+
+

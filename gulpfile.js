@@ -83,7 +83,8 @@ gulp.task('lint', function() {
       'window': false,
       'navigator': false,
       'Waypoint': false,
-      'Modernizr': false
+      'Modernizr': false,
+      'slm': false
     }
   }))
   .pipe(eslint.format())

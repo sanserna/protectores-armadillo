@@ -59,23 +59,17 @@
         background-size 100% 100%
         object-fit cover
     }
-    img {
+    .header-video__img {
         height 100%
-        max-width none
-        @media only screen and (min-device-width : 320px) and (orientation: landscape) {
-            height auto
-            width 120%
-        }
-        @media screen and (min-width: 40em) {
-            height auto
-            width 100%
-        }
+        width 100%
+        background-size cover
+        background-position 50% 50%
     }
     .header-video__bottom-shape {
         position absolute
         bottom 0px
         box-sizing content-box
-        border-bottom 20px solid $sun-flower
+        border-bottom 20px solid white
         height 0
         width calc(50% - 15px)
         z-index 3

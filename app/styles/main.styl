@@ -27,6 +27,7 @@
  * .header-main-video...........Contenedor del video que se muestra en el header
  * .producto....................Componente para el layout del producto individual
  * .contact-form................Formulario de la seccion de contacto
+ * .cotizador...................Elemento que reune los productos a cotizar
  * 
  */
 
@@ -47,6 +48,7 @@
 @import 'componentes/header-main-video'
 @import 'componentes/producto_3'
 @import 'componentes/contact-form'
+@import 'componentes/cotizador'
 
 
 
@@ -64,21 +66,43 @@
 // #ABOUT-SECTION
 // -------------------
 
-.about {
+.empresa {
     background white
-    .about__title {
+    padding-right 0
+    padding-left 0
+    padding-bottom 0
+    h1, p {
         color $medium-black
-        margin-bottom 5px
     }
-    .about__subtitle {
-        color $sun-flower
+    .about {
+        padding 0 50px 80px 50px
+        .about__title {
+            margin-bottom 5px
+        }
+        .about__description {
+            color $medium-black
+            margin-top 20px
+            text-align center
+            @media screen and (min-width: 40em) {
+                margin-top 30px
+            }
+        }
     }
-    .about__description {
-        color $medium-black
-        margin-top 20px
-        text-align center
-        @media screen and (min-width: 40em) {
-            margin-top 30px
+    .facts {
+        background-color lighten($silver, 80%)
+        .facts__item {
+            display flex
+            .facts__item__desc,
+            .facts__item__img {
+                width 50%
+            }
+            .facts__item__desc {
+                display flex
+                align-items center
+                min-height 300px
+                padding 30px
+                text-align center
+            }
         }
     }
 }

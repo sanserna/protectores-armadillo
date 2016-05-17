@@ -28,6 +28,9 @@ app.ctrl = {
             // - Initialize owl-carousel
             app.ctrl.setGallery();
 
+            // - set elements image backgrounds
+            app.ctrl.setElementImgBg();
+
         });
 
     }()),
@@ -322,6 +325,120 @@ app.ctrl = {
 
         });
 
+        // - toggle cotizador
+        $(document).on('click', '#toggleCotizador', function () {
+
+            var $this = $(this),
+                $cotizadorContent = $('#cotizadorContent');
+
+            $cotizadorContent.slideToggle(300);
+
+        });
+
+        // - click añadir producto cotizacion
+        $(document).on('click', '[btn-add-producto]', function (event) {
+
+            event.preventDefault();
+
+            var $this = $(this),
+                $context = $this.closest('.js-producto'),
+                $numProducto = $('[num-producto]', $context),
+                $nombreProducto = $('[producto-nombre]', $context),
+                $productosCotizacion = $('#productosCotizacion'),
+                animationEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
+                productsArr = [],
+                productObj;
+
+            $.each($('.productos-cotizacion__producto'), function (i, producto) {
+
+                var nombre = $(producto).find('[ctzn-product-name]').text();
+                productsArr.push(nombre);
+
+            });
+
+            if (productsArr.indexOf($nombreProducto.text()) >= 0) {
+
+                return;
+
+            }
+
+            if ($numProducto.val() && Number($numProducto.val()) > 0) {
+
+                productObj = {
+                    nombreProducto: $nombreProducto.text(),
+                    numProducto: $numProducto.val()
+                };
+
+                $productosCotizacion.append(slm.tmpltParser(app.templates.productCotizacion, productObj));
+                $('#productosCotizacion').trigger('addRemoveElement');
+
+            } else {
+
+                $numProducto.addClass('animated shake');
+                $numProducto.one(animationEvents, function () {
+
+                    $(this).removeClass('animated shake');
+                    $(this).focus();
+
+                });
+
+            }
+
+        });
+
+        // - click remover producto cotizacion
+        $(document).on('click', '[ctzn-product-close]', function (event) {
+
+            event.preventDefault();
+
+            var $this = $(this),
+                $producto = $this.closest('[ctzn-product]');
+
+            $producto.remove();
+            $('#productosCotizacion').trigger('addRemoveElement');
+
+        });
+
+        // - click solicitar cotizacion
+        $(document).on('click', '#btnSolicitar', function (event) {
+
+            event.preventDefault();
+
+            // - sent email
+
+        });
+
+        // - productos cotizacion removed element
+        $('#productosCotizacion').on('addRemoveElement', function () {
+
+            var $this = $(this),
+                $mensaje = $('#cotizadorMsj'),
+                $cotizadorContent = $('#cotizadorContent');
+
+            if ($this.find('[ctzn-product]').length) {
+
+                $mensaje.slideUp(300);
+
+                if ($cotizadorContent.css('display') === 'none') {
+
+                    $cotizadorContent.slideDown(300);
+
+                }
+
+            } else {
+
+                if ($cotizadorContent.css('display') === 'block') {
+
+                    $cotizadorContent.slideUp(300);
+
+                }
+
+                $mensaje.slideDown(300);
+
+            }
+
+        });
+
     }()),
 
     defineHeaderTop: function () {
@@ -343,7 +460,8 @@ app.ctrl = {
 
         if (isMobile) {
 
-            $headerBG.append('<img src="img/fondo-header-main-video.jpg" alt="protectores armadillo">');
+            $headerBG.append('<div class="header-video__img"></div>');
+            $('.header-video__img').css('background-image', 'url(img/fondo-header-main-video.jpg)');
 
         } else {
 
@@ -371,6 +489,23 @@ app.ctrl = {
             stopOnHover: true,
             navigationText: ['siguiente', 'anterior'],
             lazyLoad: true
+        });
+
+    },
+
+    setElementImgBg: function () {
+
+        'use strict';
+
+        var $element = $('[media-bg-img]');
+
+        $.each($element, function (i, e) {
+
+            var $e = $(e),
+                path = $e.attr('media-bg-img');
+
+            $e.css('background-image', 'url(' + path + ')');
+
         });
 
     },

@@ -68,7 +68,7 @@
     .info__toggle {
         background-color $silver
         background-image url('img/flecha-negra__arriba.png') 
-        background-position 70% 50% 
+        background-position 90% 50%
         background-repeat no-repeat
         background-size 25px 25px
         cursor pointer
@@ -124,6 +124,9 @@
                 background darken($sun-flower, 10%)
             }
         }
+        @media screen and (max-width: 63.9375em) {
+            display none
+        }
     }
 }
 
@@ -165,6 +168,14 @@
     }
     .especificaciones__medida--grosor:before {
         content 'Grosor'
+    }
+}
+
+// espaciado entre poductos
+.productos-container {
+    .column {
+        padding-top 0.9375rem
+        padding-bottom 0.9375rem
     }
 }
 
