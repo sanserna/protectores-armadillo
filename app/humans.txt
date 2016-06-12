@@ -6,7 +6,7 @@
 
 # SITE
 
-  Last update: 2016/01/22
+  Last update: 2016/06/12
   Language: Castellano
   Doctype: HTML5
   IDE: Sublime Text, Illustrator

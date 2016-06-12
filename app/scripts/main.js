@@ -8,9 +8,11 @@ app.ctrl = {
 
         $(document).on('ready', function () {
 
+            // - definir header top inicial
+            app.ctrl.defineHeaderTop();
+
             // - Listener para redefinir el margin-top del header segun altura del main-nav
-            $(window).resize(app.ctrl.defineHeaderTop);
-            $(window).ready(app.ctrl.defineHeaderTop);
+            $(window).on('resize', app.ctrl.defineHeaderTop);
 
             // - Realizar carga de gifs para almacenar en cache
             app.ctrl.preCargarGif();
@@ -39,7 +41,14 @@ app.ctrl = {
 
         'use strict';
 
-        var transEndEventNames = {
+        var animationEndEventsNames = {
+                WebkitAnimation: 'webkitAnimationEnd',
+                MozAnimation: 'mozAnimationEnd',
+                OAnimation: 'MSAnimationEnd',
+                msAnimation: 'oanimationend',
+                animation: 'animationend'
+            },
+            transEndEventNames = {
                 WebkitTransition: 'webkitTransitionEnd',
                 MozTransition: 'transitionend',
                 OTransition: 'oTransitionEnd',
@@ -47,8 +56,10 @@ app.ctrl = {
                 transition: 'transitionend'
             },
             support = {
+                animations: Modernizr.cssanimations,
                 transitions: Modernizr.csstransitions
             },
+            animationEventName = animationEndEventsNames[Modernizr.prefixed('animation')],
             transEndEventName = transEndEventNames[Modernizr.prefixed('transition')],
             productImgSrc;
 
@@ -80,7 +91,7 @@ app.ctrl = {
                 }, {
                     offset: function () {
 
-                        return $('#main-nav').outerHeight(true);
+                        return $('#main-nav').height();
 
                     }
                 }),
@@ -99,7 +110,7 @@ app.ctrl = {
                 }, {
                     offset: function () {
 
-                        return -$(this.element).outerHeight(true) + $('#main-nav').outerHeight();
+                        return -($(this.element).outerHeight(true) - 2) + $('#main-nav').height();
 
                     }
                 });
@@ -168,8 +179,14 @@ app.ctrl = {
                     $currentItem = $mainNav.find('.menu__item--current'),
                     menuLinkTo = $(this).attr("href"),
                     $toSection = $(menuLinkTo),
-                    toSectionTop = app.context.isMobile() ? $toSection.offset().top : $toSection.offset().top - $mainNav.outerHeight(),
+                    toSectionTop = app.context.isMobile() ? $toSection.offset().top : $toSection.offset().top - $mainNav.height(),
                     directionDown = toSectionTop > lastScrollTop;
+
+                if (Modernizr.mq('(max-width: 39.9375em)')) {
+
+                    $('.js-menu').slideUp();
+
+                }
 
                 if (!waypoint) {
 
@@ -240,7 +257,6 @@ app.ctrl = {
 
                     } else {
 
-                        console.log('rapido');
                         $("html, body").scrollTop(toSectionTop);
 
                     }
@@ -302,6 +318,15 @@ app.ctrl = {
 
         });
 
+        // - toggle main-nav
+        $('.js-nav-toggle').click(function () {
+
+            var $navMenu = $('.js-menu');
+
+            $navMenu.slideToggle();
+
+        });
+
         // - toggle product info
         $(document).on('click', '.js-info__toggle', function () {
 
@@ -345,7 +370,6 @@ app.ctrl = {
                 $numProducto = $('[num-producto]', $context),
                 $nombreProducto = $('[producto-nombre]', $context),
                 $productosCotizacion = $('#productosCotizacion'),
-                animationEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
                 productsArr = [],
                 productObj;
 
@@ -375,7 +399,7 @@ app.ctrl = {
             } else {
 
                 $numProducto.addClass('animated shake');
-                $numProducto.one(animationEvents, function () {
+                $numProducto.one(animationEventName, function () {
 
                     $(this).removeClass('animated shake');
                     $(this).focus();
@@ -396,15 +420,6 @@ app.ctrl = {
 
             $producto.remove();
             $('#productosCotizacion').trigger('addRemoveElement');
-
-        });
-
-        // - click solicitar cotizacion
-        $(document).on('click', '#btnSolicitar', function (event) {
-
-            event.preventDefault();
-
-            // - sent email
 
         });
 
@@ -439,6 +454,149 @@ app.ctrl = {
 
         });
 
+        // - send contact form
+        $('#sendForm').click(function (event) {
+
+            event.preventDefault();
+
+            var $nombre = $('#nombre'),
+                $email = $('#correo'),
+                $mensaje = $('#mensaje'),
+                $returnMsn = $('#returnMsn'),
+                datos;
+
+            $returnMsn.empty().removeClass('contact-form__return-msn--success contact-form__return-msn--error');
+
+            if ($nombre.val() == '') {
+
+                $nombre.addClass('animated shake');
+                $nombre.one(animationEventName, function () {
+
+                    $(this).removeClass('animated shake');
+                    $(this).focus();
+
+                });
+
+            } else if ($email.val() == '') {
+
+                $email.addClass('animated shake');
+                $email.one(animationEventName, function () {
+
+                    $(this).removeClass('animated shake');
+                    $(this).focus();
+
+                });
+
+            } else if ($mensaje.val() == '') {
+
+                $mensaje.addClass('animated shake');
+                $mensaje.one(animationEventName, function () {
+
+                    $(this).removeClass('animated shake');
+                    $(this).focus();
+
+                });
+
+            } else {
+
+                datos = 'nombre=' + $nombre.val() + '&email=' + $email.val() + '&mensaje=' + $mensaje.val();
+                $.ajax({
+                    type: 'POST',
+                    url: './contact-form.php',
+                    data: datos,
+                    success: function () {
+
+                        $nombre.val('');
+                        $email.val('');
+                        $mensaje.val('');
+                        $returnMsn.text('Mensaje enviado con éxito!').addClass('contact-form__return-msn--success');
+
+                    },
+                    error: function () {
+
+                        $returnMsn.text('Error al enviar el mensaje, por favor intenta de nuevo.').addClass('contact-form__return-msn--error');
+
+                    }
+                });
+
+            }
+
+        });
+
+        // - solicitar cotizacion
+        $('#btnSolicitar').click(function (event) {
+
+            var $this = $(this),
+                $nombre = $('#nombreCotizacion'),
+                $email = $('#emailCotizacion'),
+                $productosContainer = $('#productosCotizacion'),
+                $productosCotizacion = $('[ctzn-product]'),
+                data = {},
+                arr = [];
+
+            if ($productosCotizacion.length) {
+
+                if ($nombre.val() && $email.val()) {
+
+                    $productosCotizacion.each(function (i, p) {
+
+                        var obj = {
+                            nombreProducto: $(p).find('[ctzn-product-name]').text(),
+                            cantidadProducto: $(p).find('[ctzn-product-num]').text()
+                        };
+
+                        arr.push(obj);
+
+                    });
+
+                    data.nombre = $nombre.val();
+                    data.email = $email.val();
+                    data.items = arr;
+
+                    $.ajax({
+                        type: 'POST',
+                        url: './solicitar-cotizacion.php',
+                        data: {data: JSON.stringify(data)},
+                        success: function () {
+
+                            $this.html('SOLICITUD ESXITOSA!').addClass('success');
+
+                            setTimeout(function () {
+
+                                $('#cotizadorContent').slideUp(300, function () {
+
+                                    $productosContainer.empty();
+                                    $('[num-producto]').val('');
+                                    $nombre.val('');
+                                    $email.val('');
+                                    $this.html('SOLICITAR').removeClass('success');
+
+                                    $('#productosCotizacion').trigger('addRemoveElement');
+
+                                });
+
+                            }, 3000);
+
+                        },
+                        error: function () {
+
+                            $this.html('ERROR EN LA SOLICITUD').addClass('error');
+
+                            setTimeout(function () {
+
+                                $this.html('SOLICITAR').removeClass('error');
+
+                            }, 3000);
+
+                        }
+                    });
+
+                }
+
+            }
+
+        });
+
     }()),
 
     defineHeaderTop: function () {
@@ -446,9 +604,10 @@ app.ctrl = {
         'use strict';
 
         var $headerVideo = $('#header-video'),
-            mainNavHeight = $('#main-nav').outerHeight();
+            query = Modernizr.mq('(min-width: 40em)'),
+            navHeight = query ? $('#main-nav').outerHeight() : $('.main-nav__top').outerHeight();
 
-        $headerVideo.css('margin-top', mainNavHeight + 'px');
+        $headerVideo.css('margin-top', navHeight + 'px');
 
     },
 

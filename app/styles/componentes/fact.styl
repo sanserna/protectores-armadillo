@@ -1,0 +1,27 @@
+// -------------------
+// #FACTS
+// -------------------
+
+.fact {
+    .fact__desc,
+    .fact__img {
+        width 100%
+    }
+    .fact__desc {
+        color $medium-black
+        background-color lighten($silver, 80%)
+        padding 30px
+        text-align center
+        span {
+            color $sun-flower
+            font-weight bold
+        }
+    }
+    .fact__img {}
+    @media screen and (min-width: 64em) {
+        .fact__desc {
+            min-height 300px
+            padding 30px 10px
+        }
+    }
+}

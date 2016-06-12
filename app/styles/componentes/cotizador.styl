@@ -48,6 +48,7 @@
         }
         input {
             border 1px solid $gray
+            border-bottom none
             color $medium-black
             background white
             padding 5px
@@ -68,10 +69,19 @@
                 color white
                 background darken($clouds, 30%)
             }
-            &.succes {
+            &.success, &.error {
                 color white
-                background $esmerald url('img/check.png') 95% 50% no-repeat
+                background-position 95% 50%
+                background-repeat no-repeat
                 background-size 20px 20px
+            }
+            &.success {
+                background-color $esmerald 
+                background-image url('img/check.png')
+            }
+            &.error {
+                background-color $pomegranate 
+                background-image url('img/error.png')
             }
         }
     }

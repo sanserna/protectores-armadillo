@@ -93,7 +93,7 @@ gulp.task('lint', function() {
 
 // Image task: optimizar imagenes.
 gulp.task('images', function() {
-  var mainImg = gulp.src(['app/img/**/*.png', 'app/img/**/*.jpg'])
+  var mainImg = gulp.src(['app/img/**/*.png', 'app/img/**/*.jpg', 'app/img/**/*.gif'])
     .pipe(imagemin({
       optimizationLevel: 5,
       progressive: true,
@@ -125,7 +125,8 @@ gulp.task('copy', function() {
     .pipe(size({title: 'videos'}));
 
   var fonts = gulp.src(['app/styles/fonts/**/*'])
-    .pipe(gulp.dest('dist/styles'));
+    .pipe(gulp.dest('dist/styles/fonts'))
+    .pipe(size({title: 'fonts'}));
 
   return merge(rootFiles, videoFiles, fonts);
 });
@@ -190,6 +191,9 @@ gulp.task('build:js', function() {
     'app/scripts/vendors/modernizr-custom.js',
     'app/scripts/vendors/jquery.waypoints.js',
     'app/scripts/vendors/owl-carousel.js',
+    'app/scripts/slm.js',
+    'app/scripts/directives.js',
+    'app/scripts/templates.js',
     'app/scripts/context.js',
     'app/scripts/main.js'
   ])
@@ -222,7 +226,7 @@ gulp.task('build:html', function(){
     .pipe(gulpif('*.html', htmlmin({
       removeComments: true,
       collapseWhitespace: true,
-      removeEmptyElements: true,
+      // removeEmptyElements: true,
       keepClosingSlash: true
     })))
     // Output files

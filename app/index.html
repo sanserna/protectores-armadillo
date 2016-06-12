@@ -24,32 +24,28 @@
   </head>
   <body background="img/dots_@2X.png">
     <!-- ARMADILLO MAIN LAYOUT -->
-    <div id="main-nav" class="main-nav align-middle medium-collapse row">
-      <div class="small-12 medium-1 large-offset-1 align-self-middle column">
+    <div id="main-nav" class="main-nav">
+      <div class="main-nav__top">
         <img class="main-nav__logo" src="img/armadillo-logo.png" alt="armadillo">
+        <h1 class="main-nav__title">Protectores Armadillo</h1>
+        <div class="js-nav-toggle main-nav__toggle"></div>
       </div>
 
-      <div class=" small-12 medium-4 column">
-        <h1 class="main-nav__title">Protectores Armadillo</h1>
-      </div>
-      
-      <div class="small-12 medium-7 large-5 align-self-right column">
-        <nav class="main-nav__menu menu menu--titania">
-          <ul class="menu__list">
-            <li class="menu__item menu__item--current"><a href="#productos" class="js-menu-link menu__link">Productos</a></li>
-            <li class="menu__item"><a href="#galeria" class="js-menu-link menu__link">Galeria</a></li>
-            <li class="menu__item"><a href="#contacto" class="js-menu-link menu__link">Contacto</a></li>
-            <li class="menu__lines"></li>
-          </ul>
-        </nav>
-      </div>
+      <nav class="js-menu main-nav__menu menu">
+        <ul class="menu__list">
+          <li class="menu__item menu__item--current"><a href="#empresa" class="js-menu-link menu__link">Nosotros</a></li>
+          <li class="menu__item"><a href="#productos" class="js-menu-link menu__link">Productos</a></li>
+          <li class="menu__item"><a href="#galeria" class="js-menu-link menu__link">Galeria</a></li>
+          <li class="menu__item"><a href="#contacto" class="js-menu-link menu__link">Contacto</a></li>
+        </ul>
+      </nav>
     </div>
 
     <header id="header-video" class="header-video small-uncollapse row">
       <div class="overlayed-bg"></div>
       <div id="main-header-bg" class="header-video__bg column"></div>
       <div class="header-video__txt-container">
-        <h1 class="header-video__txt-container__title">Somos una empresa dedicada al cuidado de su vehículo</h1>
+        <h1 class="header-video__txt-container__title">Estamos dedicados al cuidado de su vehículo</h1>
         <p class="header-video__txt-container__description">Ofrecemos los mejores productos</p>
       </div>
       <div class="header-video__bottom-shape header-video__bottom-shape--left"></div>
@@ -61,33 +57,63 @@
       <div class="cotizador__toggle normal-text" id="toggleCotizador">Solicitar Cotización</div>
       <div id="cotizadorContent">
         <p class="cotizador__no-producto normal-text" id="cotizadorMsj">Para solicitar una cotización, selecciona el numero de unidades que deseas de cada producto en su descripción.</p>
-        <div class="cotizador__productos productos-cotizacion" id="productosCotizacion">
-        </div>
+        <div class="cotizador__productos productos-cotizacion" id="productosCotizacion"></div>
         <div class="cotizador__solicitar">
-          <input type="text" filter-keys='email' placeholder="me@example.com" id="emailCotizacion">
+          <input type="text" placeholder="Tu nombre" id="nombreCotizacion">
+          <input type="text" filter-keys='email' placeholder="Tu correo (yo@ejemplo.com)" id="emailCotizacion">
           <button class="normal-text" id="btnSolicitar">solicitar</button>
         </div>
       </div>
     </div>
 
     <main id="page-content" class="page-content">
-      <section class="empresa small-collapse align-center expanded row">
+      <section id="empresa" class="empresa small-collapse align-center expanded row">
         <div class="small-12 large-7 column">
           <div class="about">
             <h1 class="about__title main-title">¿Quienes Somos?</h1>
             <p class="about__description main-description">Protectores Armadillo es una empresa dedicada a la comercialización de artículos auxiliares de estacionamiento. Nuestros productos le brindan tranquilidad, comodidad y seguridad al usuario, cuidando sus vehículos a la hora de estacionar.</p>
           </div>
         </div>
-        <div class="small-12 column">
-          <div class="facts">
-            <div class="facts__item">
-              <p class="facts__item__desc main-description">El 80% de los accidentes que ocurren en un estacionamiento son ocasionados por las columnas.</p>
-              <div class="facts__item__img" media-bg-img="img/facts/1.jpg"></div>
+
+        <div class="small-12 column medium-collapse row">
+          <div class="small-12 medium-6 large-3 column">
+            <div class="fact">
+              <img src="img/facts/1.jpg" alt="protectores armadillo" class="fact__img">
+              <p class="fact__desc main-description">Evite rayones y abolladuras causados por las columnas al momento de estacionar. Nuestros productos son <span>resistentes y flexibles</span> y cuentan con una cinta reflectiva que garantiza mayor visibilidad.</p>
             </div>
-            <div class="facts__item">
-              <div class="facts__item__img" media-bg-img="img/facts/1.jpg"></div>
-              <p class="facts__item__desc main-description">Esta es la comparación de lo que le costaría arreglar su carro contra el costo de adquirir nuestros productos para prevenir el daño.</p>
+          </div>
+
+          <div class="small-12 medium-6 large-3 column">
+            <div class="fact">
+              <img src="img/facts/2.jpg" alt="protectores armadillo" class="fact__img">
+              <p class="fact__desc main-description">Con este producto se <span>optimiza el espacio</span> del estacionamiento y se evitan golpes y abolladuras en el parachoques. Además contamos con un producto similar orientado a la protección de puertas.</p>
             </div>
+          </div>
+
+          <div class="small-12 medium-6 large-3 column">
+            <div class="fact">
+              <img src="img/facts/3.jpg" alt="protectores armadillo" class="fact__img">
+              <p class="fact__desc main-description">Delimite el espacio de estacionamiento con nuestros <span>topellantas dobles o sencillos</span>. Nuestros productos son de un material altamente resistente que mantiene su color y buena presentación a lo largo del tiempo.</p>
+            </div>
+          </div>
+
+          <div class="small-12 medium-6 large-3 column">
+            <div class="fact">
+              <img src="img/facts/4.jpg" alt="protectores armadillo" class="fact__img">
+              <p class="fact__desc main-description">Evite accidentes en los cruces de vehículos, curvas con baja visibilidad y zonas con transito de peatones y niños. Nuestros productos son altamente <span>resistentes</span>, <span>durables</span> y <span>flexibles</span>.</p>
+            </div>
+          </div>
+
+          <div class="small-12 medium-4 column">
+            <img src="img/facts/5.jpg" alt="protectores armadillo">
+          </div>
+
+          <div class="small-12 medium-4 column">
+            <img src="img/facts/6.jpg" alt="protectores armadillo">
+          </div>
+
+          <div class="small-12 medium-4 column">
+            <img src="img/facts/7.jpg" alt="protectores armadillo">
           </div>
         </div>
       </section>
@@ -95,25 +121,25 @@
       <section id="productos" class="productos row">
         <div class="small-12 column">
           <h1 class="productos__title main-title">Nuestros Productos</h1>
-          <p class="productos__descripcion main-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat inventore repellat, id culpa nostrum ipsum voluptatum fugit modi eveniet incidunt?</p>
+          <!-- <p class="productos__descripcion main-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat inventore repellat, id culpa nostrum ipsum voluptatum fugit modi eveniet incidunt?</p> -->
         </div>
 
         <div class="productos-container small-12 column row">
 
           <div class="small-12 medium-4 column">
             <div class="js-producto producto">
-              <h3 class="producto__name terciary-title" producto-nombre>Protector Esquinero Pequeño</h3>
+              <h3 class="producto__name terciary-title" producto-nombre>Armadillo Esquinero Pequeño</h3>
               <div class="producto__content">
                 <div class="img-overlay"></div>
                 <img src="img/productos/protector-esquinero-pequeño-portada.jpg" alt="protector esquinero" data-gif="img/productos/protector-esquinero-pequeño.gif">
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Este producto esta diseñado para evitar los rayones y abolladuras de su carro al momento de parquear. Es de un material resistente y flexible, cuenta con cintas reflectivas para ayudar a la visibilidad del conductor y tiene un diseño que va con la estética de los parqueaderos. Además con nuestro Protector para Pared evitará los altos costos de reparación en que se incurre para remediar los rayones causados al automóvil.<br>Instalación completamente gratis en la ciudad de Bogotá, contáctenos ya y sienta la seguridad al parquear que le brindan nuestros productos.</p>
                   <div class="info__especificaciones especificaciones">
                     <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
-                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
-                    <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--ancho">19,5cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--grosor">0,7cm</p>
                   </div>
                   <div class="info__cotizar">
                     <input type="text" filter-keys="numeric" placeholder="#" maxlength="5" num-producto>
@@ -126,14 +152,14 @@
 
           <div class="small-12 medium-4 column">
             <div class="js-producto producto">
-              <h3 class="producto__name terciary-title" producto-nombre>Protector Esquinero Mediano</h3>
+              <h3 class="producto__name terciary-title" producto-nombre>Armadillo Esquinero Mediano</h3>
               <div class="producto__content">
                 <div class="img-overlay"></div>
                 <img src="img/productos/protector-esquinero-mediano-portada.jpg" alt="protector esquinero" data-gif="img/productos/protector-esquinero-mediano.gif">
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Este producto esta diseñado para evitar los rayones y abolladuras de su carro al momento de parquear. Es de un material resistente y flexible, cuenta con cintas reflectivas para ayudar a la visibilidad del conductor y tiene un diseño que va con la estética de los parqueaderos. Además con nuestro Protector para Pared evitará los altos costos de reparación en que se incurre para remediar los rayones causados al automóvil.<br>Instalación completamente gratis en la ciudad de Bogotá, contáctenos ya y sienta la seguridad al parquear que le brindan nuestros productos.</p>
                   <div class="info__especificaciones especificaciones">
                     <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
                     <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
@@ -150,17 +176,17 @@
 
           <div class="small-12 medium-4 column">
             <div class="js-producto producto">
-              <h3 class="producto__name terciary-title" producto-nombre>Protector Esquinero Grande</h3>
+              <h3 class="producto__name terciary-title" producto-nombre>Armadillo Esquinero Grande</h3>
               <div class="producto__content">
                 <div class="img-overlay"></div>
                 <img src="img/productos/protector-esquinero-grande-portada.jpg" alt="protector esquinero" data-gif="img/productos/protector-esquinero-grande.gif">
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Este producto esta diseñado para evitar los rayones y abolladuras de su carro al momento de parquear. Es de un material resistente y flexible, cuenta con cintas reflectivas para ayudar a la visibilidad del conductor y tiene un diseño que va con la estética de los parqueaderos. Además con nuestro Protector para Pared evitará los altos costos de reparación en que se incurre para remediar los rayones causados al automóvil.<br>Instalación completamente gratis en la ciudad de Bogotá, contáctenos ya y sienta la seguridad al parquear que le brindan nuestros productos.</p>
                   <div class="info__especificaciones especificaciones">
                     <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
-                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--ancho">24,5cm</p>
                     <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
                   </div>
                   <div class="info__cotizar">
@@ -181,11 +207,11 @@
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Delimite el espacio de estacionamiento con nuestros tope llantas. Fabricado de un caucho altamente resistente que mantiene su color y buena presentación a lo largo del tiempo.<br>Su instalación tiene un costo adicional, contáctenos!</p>
                   <div class="info__especificaciones especificaciones">
-                    <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
-                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
-                    <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--largo">50cm</p> 
+                    <p class="especificaciones__medida especificaciones__medida--ancho">15cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--grosor">10cm</p>
                   </div>
                   <div class="info__cotizar">
                     <input type="text" filter-keys="numeric" placeholder="#" maxlength="5" num-producto>
@@ -205,11 +231,11 @@
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Delimite el espacio de estacionamiento con nuestros tope llantas. Fabricado de un caucho altamente resistente que mantiene su color y buena presentación a lo largo del tiempo.<br>Su instalación tiene un costo adicional, contáctenos!</p>
                   <div class="info__especificaciones especificaciones">
-                    <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
-                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
-                    <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--largo">183cm</p> 
+                    <p class="especificaciones__medida especificaciones__medida--ancho">15cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--grosor">10cm</p>
                   </div>
                   <div class="info__cotizar">
                     <input type="text" filter-keys="numeric" placeholder="#" maxlength="5" num-producto>
@@ -222,18 +248,18 @@
 
           <div class="small-12 medium-4 column">
             <div class="js-producto producto">
-              <h3 class="producto__name terciary-title" producto-nombre>Tope Trasero</h3>
+              <h3 class="producto__name terciary-title" producto-nombre>Armadillo Trasero</h3>
               <div class="producto__content">
                 <div class="img-overlay"></div>
                 <img src="img/productos/tope-trasero-portada.jpg" alt="tope trasero" data-gif="img/productos/tope-trasero.gif">
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Este producto ayuda a proteger el para choques de su vehículo al momento de parquear. Esta hecho de un material resistente el cual amortigua su vehículo al parquear y previene su coque contra los muros traseros.<br>Instalación completamente gratis en la ciudad de Bogotá, contáctenos ya y sienta la seguridad al parquear que le brindan nuestros productos.</p>
                   <div class="info__especificaciones especificaciones">
-                    <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
-                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
-                    <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--largo">35cm</p> 
+                    <p class="especificaciones__medida especificaciones__medida--ancho">10cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--grosor">6cm</p>
                   </div>
                   <div class="info__cotizar">
                     <input type="text" filter-keys="numeric" placeholder="#" maxlength="5" num-producto>
@@ -246,18 +272,18 @@
 
           <div class="small-12 medium-4 column">
             <div class="js-producto producto">
-              <h3 class="producto__name terciary-title" producto-nombre>Protector Pared</h3>
+              <h3 class="producto__name terciary-title" producto-nombre>Armadillo Pared</h3>
               <div class="producto__content">
                 <div class="img-overlay"></div>
                 <img src="img/productos/protector-pared-portada.jpg" alt="protector pared">
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Este producto esta diseñado para evitar los rayones de su carro tras los golpes en las paredes y columnas al momento de abrir las puertas. Se adapta fácilmente a los diferentes estacionamientos, y pueden ser instalados en los lugares que mas lo necesite para la protección de su vehículo. Además con nuestro Protector para Pared evitará los altos costos de reparación en que se incurre para remediar los rayones causados al automóvil.<br>Instalación completamente gratis en la ciudad de Bogotá, contáctenos ya y sienta la seguridad al parquear que le brindan nuestros productos.</p>
                   <div class="info__especificaciones especificaciones">
                     <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
-                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
-                    <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--ancho">19,5cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--grosor">0,7cm</p>
                   </div>
                   <div class="info__cotizar">
                     <input type="text" filter-keys="numeric" placeholder="#" maxlength="5" num-producto>
@@ -270,18 +296,18 @@
 
           <div class="small-12 medium-4 column">
             <div class="js-producto producto">
-              <h3 class="producto__name terciary-title" producto-nombre>Reductor de Velocidad 1</h3>
+              <h3 class="producto__name terciary-title" producto-nombre>Reductor de Velocidad</h3>
               <div class="producto__content">
                 <div class="img-overlay"></div>
                 <img src="img/productos/reductor-velocidad-ref1-portada.jpg" alt="reductor de velocidad">
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Evite accidentes en los cruces de vehículos, curvas con baja visibilidad y zonas con tránsito de peatones y niños. Nuestros productos son altamente resistentes, durables y flexibles y mantienen sus características año tras año. Es posible variar la longitud de los reductores de velocidad de acuerdo a sus requerimientos.<br>Su instalación tiene un costo adicional, contáctenos!</p>
                   <div class="info__especificaciones especificaciones">
-                    <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
-                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
-                    <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--largo">100cm</p> 
+                    <p class="especificaciones__medida especificaciones__medida--ancho">30cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--grosor">4,5cm</p>
                   </div>
                   <div class="info__cotizar">
                     <input type="text" filter-keys="numeric" placeholder="#" maxlength="5" num-producto>
@@ -294,18 +320,18 @@
 
           <div class="small-12 medium-4 column">
             <div class="js-producto producto">
-              <h3 class="producto__name terciary-title" producto-nombre>Reductor de Velocidad 2</h3>
+              <h3 class="producto__name terciary-title" producto-nombre>Reductor de Velocidad por Módulos</h3>
               <div class="producto__content">
                 <div class="img-overlay"></div>
                 <img src="img/productos/reductor-velocidad-ref2-portada.jpg" alt="reductor de velocidad">
                 <div class="producto__info info">
                   <div class="js-info__toggle info__toggle normal-text">VER MAS</div>
                   <h3 class="info__titulo terciary-title">Sobre el Producto:</h3>
-                  <p class="info__descripcion secondary-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum distinctio sequi nostrum placeat voluptatum praesentium, optio odit fugit consequuntur ratione.</p>
+                  <p class="info__descripcion secondary-description">Evite accidentes en los cruces de vehículos, curvas con baja visibilidad y zonas con tránsito de peatones y niños. Nuestros productos son altamente resistentes,durables y flexibles y mantienen sus características año tras año. Es posible variarla longitud de los reductores de velocidad de acuerdo a sus requerimientos.<br>Su instalación tiene un costo adicional, contáctenos!</p>
                   <div class="info__especificaciones especificaciones">
-                    <p class="especificaciones__medida especificaciones__medida--largo">80cm</p> 
-                    <p class="especificaciones__medida especificaciones__medida--ancho">22cm</p>
-                    <p class="especificaciones__medida especificaciones__medida--grosor">1,3cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--largo">25cm</p> 
+                    <p class="especificaciones__medida especificaciones__medida--ancho">35cm</p>
+                    <p class="especificaciones__medida especificaciones__medida--grosor">5cm</p>
                   </div>
                   <div class="info__cotizar">
                     <input type="text" filter-keys="numeric" placeholder="#" maxlength="5" num-producto>
@@ -336,27 +362,26 @@
       <section id="contacto" class="contacto row">
         <div class="small-12 column">
           <h1 class="contacto__title main-title">Contacto</h1>
-          <p class="contacto__descripcion main-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat inventore repellat, id culpa nostrum ipsum voluptatum fugit modi eveniet incidunt?</p>
+          <!-- <p class="contacto__descripcion main-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat inventore repellat, id culpa nostrum ipsum voluptatum fugit modi eveniet incidunt?</p> -->
         </div>
 
         <div class="small-12 column">
           <form class="contact-form">
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" name="nombre" class="contact-form__input" required />
-              <label for="correo">E-mail</label>
-              <input type="text" id="correo" name="correo" class="contact-form__input" required />
-              <label for="mensaje">Mensaje</label>
-              <textarea id="mensaje" name="mensaje" class="contact-form__text-area" spellcheck="true" rows="10" cols="40" required></textarea>
-              <input type="submit" id="saveForm" name="saveForm" class="contact-form__submit" value="Enviar">
+              <label for="nombre">Nombre *</label>
+              <input type="text" id="nombre" name="nombre" class="contact-form__input" />
+              <label for="correo">E-mail *</label>
+              <input type="text" id="correo" name="correo" class="contact-form__input" />
+              <label for="mensaje">Mensaje *</label>
+              <textarea id="mensaje" name="mensaje" class="contact-form__text-area" spellcheck="true" rows="10" cols="40"></textarea>
+              <button id="sendForm" class="contact-form__submit">Enviar</button>
+              <p id="returnMsn" class="contact-form__return-msn normal-text"></p>
           </form>
         </div>
 
         <div class="small-12 column">
           <div class="contacto__medios">
-            <h1 class="main-title">Contacto directo con:</h1>
-            <h2 class="medios__item-main-title secondary-title">Alfonso Martinez</h2>
             <p class="medios__item-title main-description">Celular</h3>
-            <p class="medios__item-descripcion main-description">310-2405355</p>
+            <p class="medios__item-descripcion main-description">(310) 7799112 - (311) 5226230</p>
             <p class="medios__item-title main-description">Correo</p>
             <p class="medios__item-descripcion main-description">protectores@protectoresarmadillo.com</p>
             <h2 class="secondary-title">Bogotá D.C, Colombia</h2>
@@ -369,10 +394,10 @@
       <img class="page-footer__logo" src="img/armadillo-logo.png" alt="armadillo">
       <div class="page-footer__social-media">
         <h2 class="secondary-title">Siguenos en:</h2>
-        <a href="#" target="_blank">
+        <a href="https://www.facebook.com/ProtectoresArmadilloSAS" target="_blank">
           <img src="img/logo-blanco-facebook.png">
         </a>
-        <a href="#" target="_blank">
+        <a href="" target="_blank">
           <img src="img/logo-blanco-twitter.png">
         </a>
       </div>
@@ -391,15 +416,5 @@
     <script src="scripts/context.js"></script>
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-
-    <!-- Google Analytics -->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-      ga('create', 'CODE', 'auto');
-      ga('send', 'pageview');
-    </script>
   </body>
 </html>

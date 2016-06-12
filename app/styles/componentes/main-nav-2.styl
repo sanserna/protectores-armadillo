@@ -1,0 +1,155 @@
+// -------------------
+// @MAIN-NAV
+// -------------------
+
+.main-nav {
+    background $main-nav-bg-color
+    display flex
+    flex-wrap wrap
+    box-shadow 0 3px 3px 0 rgba(black,.2)
+    max-width 75rem
+    position fixed
+    top 0
+    left 50%
+    width 100%
+    transform translate(-50%,0%)
+    transition transform 0.5s
+    z-index 1000
+    .main-nav__top {
+        display flex
+        justify-content center
+        align-items center
+        box-shadow 0 2px 3px 1px rgba(black,.2)
+        .main-nav__logo {
+            max-width 70px
+            padding 3px
+        }
+        .main-nav__title {
+            font-weight 300
+            font-size responsive $main-nav-title-range
+            font-range $min-screen-size $max-screen-size
+            padding 0 30px
+            text-align center
+        }
+        .main-nav__toggle {
+            display none
+        }
+        @media screen and (min-width: 40em) {
+            box-shadow none
+            width 50%
+        }
+    }
+    .main-nav__menu {
+        color $medium-black
+        @media screen and (min-width: 40em) {
+            width 50%
+        }
+    }
+    @media screen and (max-width: 39.9375em) {
+        box-shadow none
+        left 0
+        transform none
+        .main-nav__top {
+            justify-content space-between
+            height 55px
+            padding 5px
+            width 100%
+            .main-nav__logo{
+                width 15%
+                max-width 60px
+                padding 0
+            }
+            .main-nav__title{
+                padding 0
+                width 70%
+            }
+            .main-nav__toggle{
+                display block
+                background-image url('img/menu_negro.png')
+                background-repeat no-repeat
+                background-size 35px 35px
+                background-position 50% 50%
+                cursor pointer
+                height 100%
+                width 15%
+            }
+        }
+        .main-nav__menu {
+            display none
+            background lighten($gray, 90%)
+            padding 10px
+            width 100%
+        }
+    }
+    &--hide {
+        transform translate(0%,-100%)
+        @media screen and (min-width: 40em) {
+            transform translate(-50%,-100%)
+        }
+    }
+}
+
+// - Menu
+
+.menu {
+    display flex
+    align-items center
+    .menu__list {
+        list-style none
+        margin 0
+        padding 0
+        width 100%
+    }
+    .menu__item {
+        float left
+        padding 5px
+        text-align center
+        width (100% / $num-menu-items)
+        &--current {
+            color $menu-item-current-color
+        }
+    }
+    .menu__link {
+        display block
+        cursor pointer
+        font-size responsive $main-nav-menu-link-range
+        font-range $min-screen-size $max-screen-size
+        tab-highlight-color rgba(0,0,0,0)
+        transition 0.3s
+    }
+    @media screen and (max-width: 39.9375em) {
+        .menu__list {
+            display block
+        }
+        .menu__item {
+            border-bottom 1px solid $clouds
+            background lighten($gray, 95%)
+            float none
+            padding 10px
+            text-align left
+            width 100%
+            &:last-child {
+                border none
+            }
+        }
+    }
+}
+
+// - hover for touch devices
+html.no-touch .menu__link:hover {
+  color $menu-item-current-color
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -44,11 +44,12 @@
 @import 'base/_grid'
 
 // - Components imports
-@import 'componentes/main-nav'
+@import 'componentes/main-nav-2'
 @import 'componentes/header-main-video'
 @import 'componentes/producto_3'
 @import 'componentes/contact-form'
 @import 'componentes/cotizador'
+@import 'componentes/fact'
 
 
 
@@ -67,42 +68,33 @@
 // -------------------
 
 .empresa {
-    background white
-    padding-right 0
     padding-left 0
-    padding-bottom 0
+    padding-right 0
+    background white
     h1, p {
         color $medium-black
     }
     .about {
-        padding 0 50px 80px 50px
+        padding 0 20px 20px 20px
         .about__title {
-            margin-bottom 5px
+            padding 15px 0
         }
         .about__description {
             color $medium-black
-            margin-top 20px
+            padding 10px 0
             text-align center
-            @media screen and (min-width: 40em) {
-                margin-top 30px
+        }
+        @media screen and (min-width: 40em) {
+            padding 0 50px 50px 50px
+            .about__description {
+                padding 20px 0
             }
         }
     }
-    .facts {
-        background-color lighten($silver, 80%)
-        .facts__item {
-            display flex
-            .facts__item__desc,
-            .facts__item__img {
-                width 50%
-            }
-            .facts__item__desc {
-                display flex
-                align-items center
-                min-height 300px
-                padding 30px
-                text-align center
-            }
+    .row > .column {
+        padding 5px
+        img {
+            width 100%
         }
     }
 }
@@ -149,22 +141,24 @@
 
 .productos {
     background-color $sun-flower
+    border-top 7px solid $medium-black
+    border-bottom 7px solid $medium-black
     .productos__title, .productos__descripcion {
         text-align center
     }
     .productos__title {
-        color black
+        color $medium-black
     }
     .productos__descripcion {
         color $medium-black
     }
     .productos-container {
-        margin-top 20px
+        padding-top 20px
     }
     @media only screen and (min-width: 768px) {
         padding 50px 10px
         .productos-container {
-            margin-top 40px
+            padding-top 40px
         }
     }
 }
@@ -242,6 +236,7 @@
         img {
             padding 0 5px
             max-width 50px
+            cursor pointer
         }
     }
     .small-text {

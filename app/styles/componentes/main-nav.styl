@@ -1,3 +1,23 @@
+// <div id="main-nav" class="main-nav align-middle medium-collapse row">
+//   <div class="small-12 medium-1 large-offset-1 align-self-middle column">
+//     <img class="main-nav__logo" src="img/armadillo-logo.png" alt="armadillo">
+//   </div>
+
+//   <div class=" small-12 medium-4 column">
+//     <h1 class="main-nav__title">Protectores Armadillo</h1>
+//   </div>
+  
+//   <div class="small-12 medium-7 large-5 align-self-right column">
+//     <nav class="main-nav__menu menu menu--normal">
+//       <ul class="menu__list">
+//         <li class="menu__item menu__item--current"><a href="#productos" class="js-menu-link menu__link">Productos</a></li>
+//         <li class="menu__item"><a href="#galeria" class="js-menu-link menu__link">Galeria</a></li>
+//         <li class="menu__item"><a href="#contacto" class="js-menu-link menu__link">Contacto</a></li>
+//       </ul>
+//     </nav>
+//   </div>
+// </div>
+
 // -------------------
 // @MAIN-NAV
 // -------------------
@@ -19,10 +39,6 @@
     .main-nav__logo {
         margin auto
         width 20%
-        @media screen and (min-width: 40em) {
-            width 100%
-            max-width 90px
-        }
     }
     .main-nav__title {
         font-weight 300
@@ -32,15 +48,20 @@
     }
     @media screen and (min-width: 40em) {
         height 85px
-        left 50%
-        transform translate(-50%,0%)
+        left 50% transform translate(-50%,0%)
+        .main-nav__logo {
+            width 100%
+            max-width 90px
+        }
     }
-}
-
-.main-nav--hide {
-    transform translate(0%,-100%)
-    @media screen and (min-width: 40em) { 
-        transform translate(-50%,-100%)
+    &--hide {
+        transform translate(0%,-100%)
+        @media screen and (min-width: 40em) { 
+            transform translate(-50%,-100%)
+        }
+    }
+    &--collapsed {
+        display flex
     }
 }
 

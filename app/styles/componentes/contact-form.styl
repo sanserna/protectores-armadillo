@@ -27,8 +27,19 @@
         color white
         height 35px
         width 100px
+        transition 0.3s
         &:hover {
             background-color darken($sun-flower, 20%)
+        }
+    }
+    .contact-form__return-msn {
+        display inline-block
+        padding 10px 0 10px 5px
+        &--success {
+            color $esmerald
+        }
+        &--error {
+            color $pomegranate
         }
     }
     @media only screen and (min-width: 480px) {
